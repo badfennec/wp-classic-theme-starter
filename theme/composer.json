@@ -1,0 +1,16 @@
+{
+    "name": "badfennec/wp-starter",
+    "description": "A wp theme starter with composer",
+    "autoload": {
+        "psr-4": {
+            "Badfennec\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "badfennec",
+            "email": "63038277+badfennec@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}

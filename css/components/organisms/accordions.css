@@ -1,0 +1,37 @@
+@reference 'tailwindcss';
+
+.badfennec-accordion-standard {
+    
+    .badfennec-accordion-standard__items {
+
+        .badfennec-accordion-standard__item {
+            .badfennec-accordion-standard__item__box {
+                @apply overflow-hidden transition-[height] duration-500;
+
+                .badfennec-accordion-standard__item__box__content {
+                    @apply transition-opacity duration-0;
+                }
+            }
+
+            &:not(.badfennec-accordion-standard__item--current){
+
+                .badfennec-accordion-standard__item__button__icon {
+                    span {
+                        @apply rotate-180;
+                    }
+                }
+
+                .badfennec-accordion-standard__item__box {
+                    height: 0 !important;
+
+                    .badfennec-accordion-standard__item__box__content {
+                        @apply opacity-0 duration-300;
+                    }
+                }
+
+            }
+        }
+
+    }/* .badfennec-accordion-standard__items */    
+
+}/* .badfennec-accordion-standard */

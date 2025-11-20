@@ -1,0 +1,7 @@
+@reference 'tailwindcss';
+
+.badfennec-searchbar {
+    form {
+        @apply flex gap-2;
+    }
+}

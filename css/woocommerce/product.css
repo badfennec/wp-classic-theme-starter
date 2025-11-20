@@ -1,0 +1,90 @@
+.woocommerce {
+
+    ul.products {
+
+        li.product {
+
+            .onsale {
+                @apply bg-black flex aspect-square items-center text-center p-[10px];
+            }
+
+        }
+    }
+
+    div.product {
+
+        .vctheme-product-grid {
+            @apply grid grid-cols-1 xl:grid-cols-12 gap-x-cols gap-y-cols;
+
+            & > * {
+                @apply col-span-1 xl:[&:first-child]:col-span-7 xl:[&:last-child]:col-span-5;
+
+                &:not(:first-child) {
+                    a {
+                        @apply aspect-square w-full;
+                    }
+                }
+            }
+
+        }/* .vctheme-product-grid */
+
+        div.images, div.summary {
+            float: none !important;
+            width: auto !important;
+        }        
+
+        div.images {           
+
+            .woocommerce-product-gallery__wrapper { 
+                
+                @apply grid grid-cols-4 gap-[5px];
+
+                & > div {
+
+                    display: block !important;
+                    width: 100% !important;
+
+                    @apply col-span-1 [&:first-child]:col-span-4;
+                    
+                    & > a {
+                        @apply block aspect-square;
+                    }
+            
+                    & > img {
+                        @apply pointer-events-none;
+                    }
+            
+                }
+            
+            }/* .woocommerce-product-gallery__wrapper */
+
+        }/* .images */
+
+        table.variations {
+            @apply hidden;
+        }
+
+        div.quantity {
+            float: none !important;
+            margin: 0 !important;
+        }
+
+        .vctheme-single-product-variations {
+
+            .vctheme-single-product-variations__entry__buttons {
+
+                .is-disabled {
+                    @apply line-through;
+                }
+
+                .is-active {
+                    @apply underline;
+                }
+
+            }
+            
+        }
+
+    }/* .product */
+
+}

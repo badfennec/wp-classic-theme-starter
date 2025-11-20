@@ -1,0 +1,9 @@
+@reference 'tailwindcss';
+
+#main_footer {
+    @apply mt-[150px] xl:mt-[100px] py-[50px] xl:py-[70px] text-white bg-slate-800;
+}
+
+.otgs-development-site-front-end {
+    @apply hidden;
+}

@@ -1,0 +1,23 @@
+.wc-block-mini-cart {
+    .wc-block-mini-cart__button {
+        @apply p-0;
+
+        .wc-block-mini-cart__quantity-badge {
+            .wc-block-mini-cart__badge {
+                @apply bg-black text-white text-[8px] leading-[1] left-auto right-[-5px] aspect-square w-[15px] h-[15px] flex justify-center items-center;
+            }
+        }
+    }
+}
+
+.wp-block-woocommerce-cart-link {
+    .wc-block-cart-link__text {
+        display: none !important;
+    }
+}
+
+.wc-block-components-drawer__screen-overlay {
+    .wc-block-components-button {
+        box-shadow: none !important;
+    }
+}

@@ -1,0 +1,147 @@
+@reference 'tailwindcss';
+@reference './abstract/tw-settings.css';
+
+/* @import './utility/typography-2.css'; */
+
+/* @import './parts/form.css'; */
+@import './components/atoms/buttons.css';
+@import './components/organisms/footer.css';
+
+/* @import './woocommerce/woocommerce.css'; */
+
+html, body {
+	width: 100%;
+	
+	&, * {
+		scrollbar-width: thin;
+		scrollbar-color: white black;
+	}
+}
+
+body {
+	@apply overflow-x-hidden;
+}
+
+* {
+	outline: none !important;
+
+	&[role="button"] {
+		cursor: pointer;
+	}
+}
+
+#container {
+	@apply flex flex-col min-h-dvh;
+}
+
+#content {
+	@apply grow;
+}
+
+.full {
+	 @include functions.full();
+}
+
+.full-absolute {
+	 @include functions.full_absolute();
+}
+
+.bg {
+	z-index: -1;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+ul.vc-no-style, .vc-no-style ul {
+	@apply list-none pl-0 mb-0;
+}
+
+.entry-content {
+
+	& > * {
+		@apply clear-both;
+
+		&.wp-block-image {
+			&:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+		}
+	}
+
+	& > div, & > p, & > ul, & > ol, & > blockquote, & > figure {
+		@apply mt-[30px] [&:first-child]:mt-0;
+	}
+
+	& > figure {
+		@apply mt-[60px];
+	}
+
+	& > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > p {
+		&.has-background {
+			@apply p-cols;
+		}
+	}
+
+	figure {
+
+		&.is-type-video {
+
+			&.is-provider-youtube {
+
+				.wp-block-embed__wrapper {
+					@apply relative pt-[56.25%];
+
+					iframe {
+						@apply absolute top-0 left-0 w-full h-full;
+					}
+				}
+
+			}
+
+		}
+
+		&.wp-block-gallery {
+
+			&.has-nested-images {
+
+				@apply grid grid-cols-1 gap-[5px] md:grid-cols-2 xl:grid-cols-3 [&.columns-1]:xl:grid-cols-1 [&.columns-2]:xl:grid-cols-2 [&.columns-3]:xl:grid-cols-3 [&.columns-4]:xl:grid-cols-4 [&.columns-5]:xl:grid-cols-5 [&.columns-6]:xl:grid-cols-6;
+
+				& > figure {
+					width: 100% !important;
+				}
+				
+			}
+
+			.wp-block-image {
+
+				@apply block;
+
+				& > a {
+					@apply block relative aspect-[4/3] w-full;
+					height: auto !important;
+
+					img {
+						@apply absolute block w-full h-full top-0 left-0 object-cover;
+					}
+				}
+
+				figcaption.wp-element-caption {
+					@apply relative text-center text-[12px] mt-2 mb-0 bg-none text-inherit;				
+				}
+
+			}
+
+		}
+
+		figcaption.wp-element-caption {
+			@apply relative text-center text-[12px] mt-2 mb-0;				
+		}
+
+	}
+
+}

@@ -1,0 +1,55 @@
+@reference 'tailwindcss';
+
+.splide {
+
+    &:not(.is-active){
+        .splide__track {
+            @apply hidden;
+        }
+    }
+
+    &.is-active{
+
+        .splide__placeholder {
+            @apply hidden;
+        }
+
+    }
+
+    &:not(.no-drag){
+
+        .splide__track {
+
+            cursor: grab;
+
+            &:active {
+                cursor: grabbing;
+            }
+
+        }
+
+    }   
+    
+    .splide__pagination {
+        
+        @apply relative flex justify-center items-center gap-x-3 mt-5 bottom-0;
+
+        li {
+            @apply block;
+        }
+
+        button.splide__pagination__page {
+            opacity: 1 !important;     
+            transform: scale(1);       
+
+            @apply bg-black/50 m-0 transition-transform duration-200 w-2 h-auto aspect-square;
+
+            &.is-active {
+                @apply bg-black;
+            }
+
+        }
+
+    }/* .splide__pagination */
+
+}/* .splide  */

@@ -1,0 +1,8 @@
+@import './components/atoms/button-arrow.css';
+@import './components/atoms/badfennec-button-form.css';
+
+@import './components/molecules/search-bar.css';
+
+@import './components/organisms/carousels.css';
+@import './components/organisms/accordions.css';
+@import './components/organisms/forms.css';

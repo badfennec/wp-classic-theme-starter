@@ -1,0 +1,23 @@
+.woocommerce {
+
+    ul.order_details{
+
+        padding-left: 0 !important;
+    
+    }
+
+    .woocommerce-customer-details {
+
+        .woocommerce-columns {
+
+            @apply xl:grid grid-cols-2 gap-[10px];
+
+            .woocommerce-column {
+                @apply xl:flex flex-col;
+            }
+
+        } 
+
+    }
+
+}

@@ -1,0 +1,37 @@
+@reference 'tailwindcss';
+
+.vctheme-social-share {
+
+	@apply flex items-center gap-[20px];
+
+	.vctheme-social-share__icons {
+		@apply flex items-center gap-[10px];
+	}
+
+	a.social-share, a.social-share-w {
+
+		@apply text-[25px];
+
+	}
+
+}
+
+.vctheme-socials-list {
+	@apply inline-flex items-center gap-[10px];
+}/* .vctheme-socials-list */
+
+.vctheme-loop-pagination {
+
+	@apply mt-[70px] pt-[50px] border-solid border-t border-t-black;
+
+	.nav-links {
+		@apply flex justify-center items-center gap-[10px];
+
+		& > * {
+			&.current {
+				@apply font-bold;
+			}
+		}
+	}
+
+}

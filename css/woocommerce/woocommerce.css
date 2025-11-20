@@ -1,0 +1,147 @@
+@import './product.css';
+@import './account.css';
+@import './order.css';
+@import './cart.css';
+@import './checkout.css';
+@import './loop.css';
+
+.woocommerce {
+
+    h2 {
+        @apply text-[20px];
+    }
+
+    form {
+        &.woocommerce-form, &.woocommerce-checkout, &.woocommerce-form-edit-address, &.woocommerce-EditAccountForm, &.lost_reset_password {
+            @apply text-[12px];
+        }
+
+        h3, legend {
+            @apply text-[14px] mb-[5px];
+        }
+
+        label {
+            @apply cursor-pointer;
+        }
+
+        input[type="checkbox"].input-checkbox {
+            @apply inline-block;
+        }
+
+        .form-row {
+            @apply float-none mx-0 px-0 w-full self-start;
+        }
+
+        .woocommerce-billing-fields__field-wrapper, .woocommerce-shipping-fields__field-wrapper, .woocommerce-address-fields__field-wrapper, .woocommerce-editaccount-fields__field-wrapper {
+            @apply xl:grid xl:grid-cols-2 xl:gap-[10px] items-end
+        }
+    }
+
+    a.button, button.button {
+
+        box-shadow: none !important;
+
+        &.woocommerce-button, &.add_to_cart_button, &.wc-backward, &[name="apply_coupon"], &[name="update_cart"], &[type="submit"], &.alt, &.wc-forward, &.single_add_to_cart_button {
+            float: none !important;
+
+            @apply text-[14px] leading-[1] px-[15px] py-[10px];
+
+            @apply inline-flex justify-center items-center bg-black text-white border border-solid border-black [&:not(:disabled)]:hover:bg-white [&:not(:disabled)]:hover:text-black transition-colors rounded-none m-0;
+
+            &:disabled, &.disabled {
+                @apply opacity-50 bg-black text-white hover:bg-black hover:text-white;
+            }
+
+            &.single_add_to_cart_button {
+                @apply w-full;
+            }
+        }
+
+        &.alt, &.wc-forward {
+
+            @apply block text-center;
+
+        }
+
+    }
+
+    #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment {
+        @apply bg-black/5;
+    }
+
+    address {
+        padding: 20px !important;
+        border: 1px solid #000 !important;
+        border-radius: 0 !important;
+        @apply text-[14px] grow;
+    }
+
+    .woocommerce-error, .woocommerce-info, .woocommerce-message {
+        background-color: #fff;
+        padding: 20px;
+        padding-left: 55px;
+        font-size: 14px;
+        line-height: 120%;
+    
+        &::before {
+            font-size: 20px;
+            line-height: 1;
+            left: 20px;
+            top: 50%;
+            @apply translate-y-[-50%];
+        }
+    
+        a {
+            float: none !important;
+            display: inline-flex !important;
+            justify-content: center;
+            align-items: center;
+            order: 10;
+        }
+    }
+
+}
+
+.vctheme-product-quantity {
+    @apply inline-flex gap-[10px] items-center;
+}
+
+.wc-block-components-quantity-selector, .vctheme-product-quantity {
+
+    &::after {
+        display: none !important;
+    }
+
+    input.wc-block-components-quantity-selector__input {
+        box-shadow: none !important;
+    }
+
+    button {
+        border: none;
+        box-shadow: none !important;
+        min-width: 0 !important;
+    }
+}
+
+.wc-block-components-form {
+
+    .wc-block-components-text-input, .wc-blocks-components-select {
+
+        &, .wc-blocks-components-select__container {
+            margin-top: 0 !important;
+        }        
+
+        input, select {
+            padding-top: 25px !important;
+            padding-bottom: 10px !important;
+            height: 56px !important;
+        }
+    }
+
+}
+
+.wc-block-components-address-form {
+    display: grid !important;
+    gap: 10px 16px !important;
+    @apply grid-cols-1;
+}

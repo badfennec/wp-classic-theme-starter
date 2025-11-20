@@ -1,0 +1,31 @@
+body {
+	@apply text-base leading-[1.5em];
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+
+	@media ( pointer: fine ){
+		@apply hover:text-pink-700 transition-colors;
+	}
+}
+
+svg.vctheme-svg {
+	display: inline-block;
+	font-size: inherit;
+	height: 1em;
+	width: 1em;
+	overflow: visible;
+	vertical-align: -.125em;
+
+	* {
+		fill: currentColor;
+	}
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

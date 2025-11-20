@@ -1,0 +1,18 @@
+@reference 'tailwindcss';
+
+.badfennec-arrow-link {
+
+    @apply leading-[1em];
+    @apply inline-flex items-center gap-2;
+
+    svg {
+        @apply text-[20px];
+    }
+
+    &.badfennec-arrow-link--reverse {
+
+        @apply flex-row-reverse;
+
+    }
+
+}

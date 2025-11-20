@@ -1,0 +1,62 @@
+@theme {
+    --spacing-cols: 25px;
+}
+
+@utility container {  
+    @apply mx-auto px-4;
+}
+
+@utility vctheme-font-inerith {
+	& > * {
+		font-size: inherit;
+		line-height: inherit;
+		font-weight: inherit;
+		letter-spacing: inherit;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+@utility vctheme-img-cover {
+    @apply block relative;
+
+	img, video {
+		@apply absolute top-0 left-0 object-cover;
+		width: 100% !important;
+		height: 100% !important;
+	}
+}
+
+@utility text-underline-* {
+    background-image: linear-gradient(var(--value), var(--value));
+    background-position: 0 95%;
+    background-repeat: no-repeat;
+    background-size: 100% 3px;
+}
+
+/*
+
+@mixin text_underline( $c, $h ){
+	background-image: linear-gradient($c,$c);
+    background-position: 0 95%;
+    background-repeat: no-repeat;
+    background-size: 100% $h;
+}
+
+@mixin underline_hover( $c, $h ){
+	@media ( pointer: fine ){
+
+		background-image: linear-gradient($c,$c);
+		background-position: 0 95%;
+		background-repeat: no-repeat;
+		background-size: 0% $h;
+		//@include functions.transition('color .3s, background .3s');
+
+		&:hover {
+			@include text_underline( $c, $h );
+		}
+
+	}
+} */

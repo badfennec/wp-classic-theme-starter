@@ -1,0 +1,110 @@
+@reference 'tailwindcss';
+@reference '../../abstract/tw-settings.css';
+
+#navbar {
+
+	@apply sticky xl:relative top-0 left-0 border-solid w-full z-100 mb-[30px] xl:mb-[50px];
+
+	.navbar__content {
+
+		@apply bg-slate-300;
+
+		.navbar__content__container {
+			@apply  py-[30px] relative flex justify-between items-center gap-cols;
+		}
+
+		.navbar__content__container__hamb {
+			@apply xl:hidden relative z-[200] pointer-events-none; 
+		}
+
+		.navbar__content__container__navigation {
+
+			transition: transform 0s .7s, translate 0s .7s, opacity .7s ease 0s;
+
+			@apply opacity-0 translate-x-full fixed top-0 left-0 w-full h-full bg-gray-100 xl:bg-transparent xl:relative xl:top-auto xl:left-auto xl:w-auto xl:h-auto xl:flex-1 xl:opacity-100 xl:transition-none xl:translate-x-0;
+			
+	
+			.navbar__content__container__navigation__content {
+				@apply py-[100px] px-[25px] xl:p-0;
+
+				ul {
+					&.main-navigation {
+		
+						@apply grid grid-cols-1 gap-y-[25px] xl:flex xl:justify-end xl:gap-x-[20px] text-center xl:text-left;
+		
+						& > li {
+							@apply col-span-1;						
+						}
+					}
+				}
+			}
+		}
+
+		#hamb {
+			@apply block relative z-200 pointer-events-auto w-[40px] h-[24px];
+			
+			span {
+				@apply block absolute left-0 h-[5px] w-full;
+				transition: opacity .5s .5s, top .5s .5s, bottom .5s .5s, transform .5s .5s, translate .5s .5s;
+	
+				&:first-child {
+					@apply top-0;
+				}
+	
+				&:nth-child(2) {
+					@apply top-[50%] translate-y-[-50%];
+				}
+	
+				&:last-child {
+					@apply bottom-0;
+				}
+	
+				&::before {
+					content: "";
+					@apply block absolute top-0 left-0 w-full h-full transition-transform duration-500 bg-black;
+				}
+			}
+		}	
+
+	}/* .navbar__content */
+
+	&.navbar--active {
+
+		#hamb {
+			span {
+				transition: opacity .5s, top .5s, bottom .5s, transform .5s, translate .5s;
+
+				&::before {
+					@apply delay-500;
+				}
+
+				&:first-child {
+						@apply top-[50%] translate-y-[-50%];
+
+					&::before {
+						@apply rotate-[-45deg];
+					}
+				}
+
+				&:last-child {
+					@apply bottom-[50%] translate-y-[50%];
+
+					&::before {
+						@apply rotate-[45deg];
+					}
+				}
+
+				&:nth-child(2){
+					@apply opacity-0;
+				}
+			}
+		}/* #hamb */
+
+		.navbar__content__container__navigation {
+			transition: transform 0ms ease 0s, translate 0ms ease 0s, opacity .7s ease 0s;
+			@apply opacity-100 translate-x-0;
+		}/* .navbar__content__container__navigation */
+
+	}
+
+} /* #navbar */

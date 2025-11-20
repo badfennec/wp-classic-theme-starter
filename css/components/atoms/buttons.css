@@ -1,0 +1,19 @@
+@reference 'tailwindcss';
+
+.badfennec-button-round-min-group, .badfennec-button-min-group {
+
+    @apply inline-flex gap-[5px];
+
+}
+
+a.badfennec-button-min, a.badfennec-button-round-min, .badfennec-button-round-min-group a {
+    @apply inline-flex items-center justify-center font-medium px-[10px] py-[5px] transition-colors;
+}
+
+a.badfennec-button-min {
+    @apply  bg-orange-200 text-orange-900 text-xs  hover:bg-orange-900 hover:text-orange-200;
+}
+
+a.badfennec-button-round-min, .badfennec-button-round-min-group a {
+    @apply rounded-[100px] bg-cyan-200 text-cyan-900 text-xs  hover:bg-cyan-900 hover:text-cyan-200;
+}

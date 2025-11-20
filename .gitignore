@@ -1,0 +1,6 @@
+/node_modules
+/theme/assets
+package-lock.json
+/stubs
+/.vscode
+.DS_Store
