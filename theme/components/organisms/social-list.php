@@ -10,13 +10,13 @@ if( empty( $socials ) )
 
 ?>
 
-<ul class="flex gap-3">
+<ul class="badfennec-social-list flex gap-3">
     <?php
 
     foreach( $socials as $social ){
     ?>
 
-    <li>
+    <li class="badfennec-social-list__item">
         <a 
             href="<?php echo esc_url( $social['url'] ); ?>"
             title="<?php printf(__('Follow us on %s', 'badfennec'), $social['name']); ?>"

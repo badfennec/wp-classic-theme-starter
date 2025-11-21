@@ -39,6 +39,7 @@ $init = array(
 <div class="badfennec-carousel-standard" data-init = "<?php echo htmlentities( json_encode( $init ) ) ?>">
 
     <div class="splide" ref = "splide">
+        
         <div class="splide__track">
 
             <ul class="splide__list">

@@ -1,30 +1,30 @@
 @reference 'tailwindcss';
 
-.badfennec-accordion-standard {
+.badfennec-accordion {
     
-    .badfennec-accordion-standard__items {
+    .badfennec-accordion__items {
 
-        .badfennec-accordion-standard__item {
-            .badfennec-accordion-standard__item__box {
+        .badfennec-accordion__item {
+            .badfennec-accordion__box {
                 @apply overflow-hidden transition-[height] duration-500;
 
-                .badfennec-accordion-standard__item__box__content {
+                .badfennec-accordion__content {
                     @apply transition-opacity duration-0;
                 }
             }
 
-            &:not(.badfennec-accordion-standard__item--current){
+            &:not(.badfennec-accordion__item--current){
 
-                .badfennec-accordion-standard__item__button__icon {
+                .badfennec-accordion__icon {
                     span {
                         @apply rotate-180;
                     }
                 }
 
-                .badfennec-accordion-standard__item__box {
+                .badfennec-accordion__box {
                     height: 0 !important;
 
-                    .badfennec-accordion-standard__item__box__content {
+                    .badfennec-accordion__content {
                         @apply opacity-0 duration-300;
                     }
                 }
@@ -32,6 +32,6 @@
             }
         }
 
-    }/* .badfennec-accordion-standard__items */    
+    }/* .badfennec-accordion__items */    
 
-}/* .badfennec-accordion-standard */
+}/* .badfennec-accordion */

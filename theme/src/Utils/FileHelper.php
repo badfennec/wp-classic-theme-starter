@@ -5,7 +5,7 @@ namespace Badfennec\Utils;
 if ( ! defined( 'ABSPATH' ) )
     die();
 
-class AssetManager {
+class FileHelper {
 
     public static function get_file_timestamp( string $file_path ): int
     {

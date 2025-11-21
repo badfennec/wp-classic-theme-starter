@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	const BODY = document.body;
 	const carouselElementsClasses = '.badfennec-carousel-standard';
-	const accordionElementsClasses = '.badfennec-accordion-standard';
 	const lightGalleryElementsClasses = '.wp-block-gallery, .wp-block-gallery, .woocommerce-product-gallery__wrapper'; //'.wp-block-gallery, .woocommerce-product-gallery__wrapper';
 	const sidebarElementsClasses = '.badfennec-sidebar-container';
 
@@ -43,10 +42,18 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	if( document.querySelectorAll( accordionElementsClasses ).length > 0 ){
+	if( document.querySelectorAll( '.badfennec-accordion' ).length > 0 ){
 		import('./UI/accordion.js').then( ({ default: Accordion }) => {
-			document.querySelectorAll( accordionElementsClasses ).forEach( ( el ) => {
+			document.querySelectorAll( '.badfennec-accordion' ).forEach( ( el ) => {
 				new Accordion( el );
+			} );
+		});
+	}
+
+	if( document.querySelectorAll( '.badfennec-tabs' ).length > 0 ){
+		import('./UI/tabs.js').then( ({ default: Tabs }) => {
+			document.querySelectorAll( '.badfennec-tabs' ).forEach( ( el ) => {
+				new Tabs( el );
 			} );
 		});
 	}
@@ -81,6 +88,33 @@ document.addEventListener("DOMContentLoaded", function () {
 	import('./lib/lenis.js').then( q => {
 		q.initLenis();
 	});
+
+	const fetchTest = async () => {
+
+		const FD = new FormData();
+		FD.append( 'action', 'badfennec_test_action' );
+		FD.append( 'nonce', vctheme.ajax_nonce );
+
+		try {
+			const responseRequest = await fetch( vctheme.ajax_url, {
+				method: 'POST',
+				body: FD
+			});
+
+			const response =  await responseRequest.json();
+
+			if (response.success) {
+				console.log(response.data);
+			} else {
+				throw new Error( response?.data?.message || 'Fetch request failed' );
+			}
+
+		} catch ( error ) {
+			console.error( error );
+		}
+	}
+
+	fetchTest();
 });
 
 function in_window(el, callback, repeat, callbackOut){

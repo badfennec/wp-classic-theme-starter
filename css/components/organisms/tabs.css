@@ -1,0 +1,15 @@
+@reference 'tailwindcss';
+
+.badfennec-tabs {
+    .badfennec-tabs__items {
+        @apply relative;
+
+        .badfennec-tabs__item {
+            @apply absolute top-0 left-0 w-full opacity-0 pointer-events-none transition-opacity duration-500 bg-white pointer-events-none;
+
+            &.badfennec-tabs__item--active {
+                @apply relative opacity-100 pointer-events-auto z-10;
+            }
+        }
+    }
+}

@@ -27,7 +27,8 @@ class Components {
         'footer'                => 'organisms/footer',
         'social-list'           => 'organisms/social-list',
         'carousel-standard'     => 'organisms/carousel-standard',
-        'accordion-standard'    => 'organisms/accordion-standard',        
+        'accordion-standard'    => 'organisms/accordion-standard',   
+        'tabs-standard'         => 'organisms/tabs-standard',     
     ];
 
     /**
@@ -37,7 +38,7 @@ class Components {
      * @param bool $echo Whether to echo the output or return it
      * @return string The rendered component (if $echo is false)
      */
-    public static function get_components(
+    public static function get_component(
         string $componentKey,
         ?array $args = [],
         bool $echo = true

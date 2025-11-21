@@ -1,7 +1,7 @@
 <?php
 
 namespace BadFennec\Frontend;
-use Badfennec\Utils\AssetManager;
+use Badfennec\Utils\FileHelper;
 
 if ( ! defined( 'ABSPATH' ) )
     die();
@@ -40,7 +40,8 @@ class Scripts {
 		$dep = array( 
 			'theme_url' 				=>		THEME_URL, 
 			'ajax_url' 					=>		admin_url( 'admin-ajax.php' ),
-			'is_woocommerce_active'		=>		WOOCOMMERCE_IS_ACTIVE
+			'is_woocommerce_active'		=>		WOOCOMMERCE_IS_ACTIVE,
+            'ajax_nonce'                =>      wp_create_nonce( BADFENNEC_AJAX_NONCE )
 		);
 
 		?>
@@ -51,7 +52,7 @@ class Scripts {
 		/* ]]> */
 		</script>
 
-		<script type = "module" src = "<?php echo esc_url( THEME_URL . '/assets/js/main.js?v=' . AssetManager::get_file_timestamp( '/assets/js/main.js' ) ); ?>"></script>
+		<script type = "module" src = "<?php echo esc_url( THEME_URL . '/assets/js/main.js?v=' . FileHelper::get_file_timestamp( '/assets/js/main.js' ) ); ?>"></script>
 
 		<?php
 	}

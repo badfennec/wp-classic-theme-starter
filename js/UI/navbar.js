@@ -9,11 +9,11 @@ export default function Navbar(){
         isActive: false,
     });
 
-    const suscribe = ( value ) => {
-        navbar.classList.toggle( 'navbar--active', value.isActive );
+    const subscribe = ( value ) => {
+        navbar.classList.toggle( 'badfennec-navbar--active', value.isActive );
     }
 
-    hambReactive.suscribe( suscribe );
+    hambReactive.subscribe( subscribe );
 
     hamb.addEventListener( 'click', ( e ) => {
         e.preventDefault();

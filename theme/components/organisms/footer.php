@@ -8,13 +8,13 @@ $socials = \Badfennec\Frontend\Socials::get();
 
 ?>
 
-<div id = "main_footer">
+<div id = "main_footer" class="main-footer">
 
-    <div class = "container">
+    <div class="container">
 
         <?php echo implode( '<br>', $contacts ); ?>
 
-        <?php \Badfennec\Frontend\Components::get_components( 'social-list' ); ?>
+        <?php \Badfennec\Frontend\Components::get_component( 'social-list' ); ?>
 
     </div><!-- .container -->
 

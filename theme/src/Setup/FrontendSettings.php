@@ -1,7 +1,7 @@
 <?php
 
 namespace Badfennec\Setup;
-use Badfennec\Utils\AssetManager;
+use Badfennec\Utils\FileHelper;
 
 if ( ! defined( 'ABSPATH' ) )
     die();

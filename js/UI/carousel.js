@@ -10,7 +10,7 @@ export default class Carousel {
 	currentSlide = 0;
 
 	carouselReactive = null;
-	reactiveSuscribe = null;
+	reactiveSubscribe = null;
 
 	splideArgs = {
         speed: 1000,
@@ -72,11 +72,11 @@ export default class Carousel {
 			currentSlide: 0,
 		});
 
-		this.reactiveSuscribe = ( value ) => {
+		this.reactiveSubscribe = ( value ) => {
 			this.currentSlide = value.currentSlide;
 		}
 
-		this.carouselReactive.suscribe( this.reactiveSuscribe );
+		this.carouselReactive.subscribe( this.reactiveSubscribe );
 	}
 
 	#addCarousel(){

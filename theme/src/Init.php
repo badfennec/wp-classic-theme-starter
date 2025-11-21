@@ -37,6 +37,7 @@ class Init {
     {
         $services = [
             new \Badfennec\Setup\ThemeSetup(),
+            new \Badfennec\Ajax\Handler(),
         ];
 
         if( is_admin() ) {

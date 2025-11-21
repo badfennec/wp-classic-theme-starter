@@ -1,7 +1,7 @@
 <?php
 
 namespace BadFennec\Frontend;
-use Badfennec\Utils\AssetManager;
+use Badfennec\Utils\FileHelper;
 
 if ( ! defined( 'ABSPATH' ) )
     die();
@@ -110,7 +110,7 @@ class Styles {
 		foreach( self::$styles_stack as $style ){
 			$dir = THEME_DIR . '/assets/css/' . $style;
 			if( file_exists( $dir ) ){
-				$sources[] =THEME_URL . '/assets/css/' . $style . '?ver=' . AssetManager::get_file_timestamp( '/assets/css/' . $style );
+				$sources[] =THEME_URL . '/assets/css/' . $style . '?ver=' . FileHelper::get_file_timestamp( '/assets/css/' . $style );
 			}
 		}
 
@@ -186,7 +186,7 @@ class Styles {
 		foreach( self::$dynamic_blocks_stack as $style ){
 			$dir = THEME_DIR . '/assets/css/' . $style;
 			if( file_exists( $dir ) ){
-				$sources[] =THEME_URL . '/assets/css/' . $style . '?ver=' . AssetManager::get_file_timestamp( '/assets/css/' . $style );
+				$sources[] =THEME_URL . '/assets/css/' . $style . '?ver=' . FileHelper::get_file_timestamp( '/assets/css/' . $style );
 			}
 		}
 

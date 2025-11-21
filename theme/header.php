@@ -13,6 +13,6 @@
 
 	<div id = "container">
 
-		<?php \Badfennec\Frontend\Components::get_components( 'header' ); ?>
+		<?php \Badfennec\Frontend\Components::get_component( 'header' ); ?>
 					
 		<div id = "content">

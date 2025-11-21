@@ -31,7 +31,7 @@ class AdminMenu {
 			acf_add_options_page(array(
 				'menu_title'	=> 'Opzioni tema',
 				'menu_slug' 	=> Options::$main,
-				'capability'	=> 'edit_posts',
+				'capability'	=> 'manage_options',
 				'parent_slug'	=> ''
 			));
 
