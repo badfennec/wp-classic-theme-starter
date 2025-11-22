@@ -12,18 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	const lightGalleryElementsClasses = '.wp-block-gallery, .wp-block-gallery, .woocommerce-product-gallery__wrapper'; //'.wp-block-gallery, .woocommerce-product-gallery__wrapper';
 	const sidebarElementsClasses = '.badfennec-sidebar-container';
 
-	document.addEventListener("click", function (event) {
-		if ( event.target.closest( '.social-share' ) !== null) {
-			event.preventDefault();
-			window.open( event.target.closest( '.social-share' ).href, "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=0, left=10%, width=400, height=400");
-		}
-
-		if( event.target.closest( '.blank' ) !== null ){
-			event.preventDefault();
-			window.open( event.target.closest( 'a.blank' ).href );
-		}
-	});
-
 	Navbar();
 
 	if( document.querySelectorAll( carouselElementsClasses ).length > 0 ){
@@ -31,14 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			document.querySelectorAll( carouselElementsClasses ).forEach( ( el ) => {
 				new Carousel( el );
 			} );
-		});
-	}
-
-    if( document.querySelectorAll( lightGalleryElementsClasses ).length > 0 ){
-		import('./UI/lightgallery.js').then( q => {
-			q.lightgallery_init({
-				elementsClasses: lightGalleryElementsClasses,
-			});
 		});
 	}
 
@@ -58,35 +38,36 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	if( document.querySelectorAll(sidebarElementsClasses).length > 0 ){
-		import('./UI/sidebar.js').then( q => {
-			q.sidebar_init({
-				elementsClasses: sidebarElementsClasses
+	if( document.querySelectorAll( lightGalleryElementsClasses ).length > 0 ){
+		
+		import('./UI/lightgallery.js').then( q => {
+			q.lightgallery_init({
+				elementsClasses: lightGalleryElementsClasses,
 			});
 		});
 	}
 
-	if( document.querySelectorAll('form.wpcf7-form').length > 0 ){
-		import('./UI/forms.js').then( q => {
-			const SiteForms = new q.BadFennecForms();
-			SiteForms.init( document.querySelectorAll('.wpcf7-list-item') );
-		});
-	}
+	if( vctheme.is_woocommerce_active ){
 
-	/* if( vctheme.is_woocommerce_active ){
-
-		import('./lib/woo.js').then( q => {
+		import('./woocommerce/init.js').then( q => {
 			q.woocommerceInit({
 				BODY: BODY,
 				$body: jQuery( BODY ),
-				Vue: Vue
 			});
 		});
 
-	} */
+	}
 
-	import('./lib/lenis.js').then( q => {
-		q.initLenis();
+	document.addEventListener("click", function (event) {
+		if ( event.target.closest( '.social-share' ) !== null) {
+			event.preventDefault();
+			window.open( event.target.closest( '.social-share' ).href, "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=0, left=10%, width=400, height=400");
+		}
+
+		if( event.target.closest( '.blank' ) !== null ){
+			event.preventDefault();
+			window.open( event.target.closest( 'a.blank' ).href );
+		}
 	});
 
 	const fetchTest = async () => {

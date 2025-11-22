@@ -46,6 +46,8 @@ class Styles {
 		'carousel-standard'	    =>	['carousels.css'],
         'accordion-standard'	=>	['accordions.css'],
         'search-bar'            =>  ['search-bar.css', 'forms.css', 'badfennec-button-form.css'],
+
+        'product-variation'     =>  ['wooccommerce-product-variation.css'],
 	];
 
     public function register() :void

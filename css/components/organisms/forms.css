@@ -4,17 +4,17 @@ form {
 
 	::-webkit-input-placeholder {
 		color: inherit !important;
-		opacity: 1;
+		opacity: .5;
 	}
 	
 	:-ms-input-placeholder {
 		color: inherit !important;
-		opacity: 1;
+		opacity: .5;
 	}
 	
 	::placeholder {
 		color: inherit !important;
-		opacity: 1;
+		opacity: .5;
 	}
 	
 	input[type="text"], input[type="email"], textarea, input[type="tel"], input[type="password"], input[type="search"], input[type='number'], select, .select2-selection__rendered {
@@ -45,99 +45,15 @@ form {
         -moz-appearance: textfield !important;
     }
 
-	.select2-container {	
-		display: block !important;		
-
-		.select2-selection {
-
-			&.select2-selection--single {
-				height: auto !important;
-				border: none !important;	
-				margin: 0 !important;
-
-				.select2-selection__rendered {
-					padding-top: 13px !important;
-					padding-bottom: 12px !important;
-				}
-		
-				.select2-selection__arrow {
-					top: 50% !important;
-					@apply translate-y-[-50%];
-				}
-			}
-		}
-	}
-
 	input[type="submit"], button[type="submit"] {
 		@apply not-disabled:cursor-pointer;
 	}
 }
 
-.badfennec-checkbox-element, .badfennec-radio-element {
-
-	@apply inline-flex gap-[5px] text-[12px] leading-[1] cursor-pointer;
-
-	input[type="checkbox"], input[type="radio"] {
-		@apply hidden;
-	}
-
-	a {
-		@apply underline;
-	}
-
-	.wpcf7-list-item-label {
-		@apply basis-full;
-	}
-
-	.badfennec-checkbox-icon, .badfennec-radio-icon {
-
-		@apply block w-[16px] h-[16px] basis-[16px] min-w-[16px] relative border-solid border border-black rounded-[2px];
-
-		&::before {
-			content: "";
-			@apply block absolute transition-opacity opacity-0;
-		}
-
-		&[aria-checked="true"], &.is-checked {
-
-			&::before {
-				@apply opacity-100;
-			}
-		}
-	}
-
-}/* .badfennec-checkbox-element */
-
-.badfennec-checkbox-element {
-
-	.badfennec-checkbox-icon {
-
-		@apply rounded-[2px];
-
-		&::before {
-			@apply left-[4px] top-[1px] w-[6px] h-[9px] border-2 border-solid border-black border-t-0 border-l-0 rotate-[40deg];
-		}
-	}
-
-}/* .badfennec-checkbox-element */
-
-.badfennec-radio-element {
-
-	.badfennec-radio-icon {
-
-		@apply rounded-[50%];
-
-		&::before {
-			@apply left-[50%] top-[50%] w-[6px] aspect-square bg-black rounded-[50%] translate-x-[-50%] translate-y-[-50%];
-		}
-	}
-
-}/* .badfennec-radio-element */
-
 .wpcf7-form, .badfennec-form {
 
 	.wpcf7-not-valid-tip, .entry__errors, .file__list__icon__tooltip {
-		@apply rounded-md text-white absolute p-[10px] bottom-[100%] left-[50%] translate-x-[-50%] translate-y-[10px] w-full text-[12px] pointer-events-none min-w-[250px] max-w-[350px] shadow-md;
+		@apply rounded-md text-white absolute p-[10px] bottom-full left-[50%] translate-x-[-50%] translate-y-[10px] w-full text-[12px] pointer-events-none min-w-[250px] max-w-[350px] shadow-md;
 
 		&:after {
 			content: "";

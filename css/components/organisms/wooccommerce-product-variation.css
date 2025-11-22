@@ -1,0 +1,23 @@
+@reference 'tailwindcss';
+
+.badfennec-woo-single-product-variation {
+    @apply grid grid-cols-1 gap-3;
+
+    .badfennec-woo-single-product-variation__label {
+        @apply font-bold;
+    }
+
+    .badfennec-woo-single-product-variation__buttons {
+        @apply flex flex-wrap gap-2;
+
+        .badfennec-woo-single-product-variation__button {
+            &.badfennec-woo-single-product-variation__button--active {
+                @apply text-pink-600;
+            }
+
+            &.badfennec-woo-single-product-variation__button--disabled {
+                @apply opacity-50 line-through cursor-not-allowed;
+            }
+        }
+    }
+}

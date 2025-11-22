@@ -38,6 +38,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 </div><!-- .badfennec-navbar__navigation -->
 
+                <?php \Badfennec\Frontend\Components::get_component('header-cart'); ?>
+
             </div><!-- .badfennec-navbar__container -->
             
         </div><!-- .container -->

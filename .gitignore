@@ -1,5 +1,6 @@
 /node_modules
 /theme/assets
+/theme/vendor
 package-lock.json
 /stubs
 /.vscode

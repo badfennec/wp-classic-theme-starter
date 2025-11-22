@@ -10,7 +10,11 @@
 		@apply bg-slate-300;
 
 		.badfennec-navbar__container {
-			@apply  py-[30px] relative flex justify-between items-center gap-cols;
+			@apply  py-[30px] relative flex justify-end items-center gap-cols;
+		}
+
+		.badfennec-navbar__logo {
+			@apply flex-1;
 		}
 
 		.badfennec-navbar__hamb {

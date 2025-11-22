@@ -13,10 +13,10 @@ class LoginSettings {
         add_action('login_enqueue_scripts', [$this, 'login_enqueue_scripts']);
 
         // Customize the login header URL
-        add_filter( 'login_headerurl', [__CLASS__, 'login_headerurl'] );
+        add_filter( 'login_headerurl', [$this, 'login_headerurl'] );
 
         // Customize the login header title
-		add_filter( 'login_headertext', [__CLASS__, 'login_headertitle'] );
+		add_filter( 'login_headertext', [$this, 'login_headertitle'] );
 
     }
 

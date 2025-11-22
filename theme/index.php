@@ -6,6 +6,28 @@ use Badfennec\Frontend\Components;
 	?>
 
 	<div class="container">
+
+		<div class="flex">
+			<div>
+				<label><input type="radio" name="test" value="1" checked> 1</label><br>
+				<label><input type="radio" name="test" value="2"> 2</label><br>
+				<label><input type="radio" name="test" value="3"> 3</label>
+			</div>
+
+			<div>
+				<label><input type="checkbox" name="test" value="3"> 3</label>
+			</div>
+		</div>
+
+		<!-- <div class="wp-block-gallery">
+			<a href="https://images.unsplash.com/photo-1596370743446-6a7ef43a36f9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80">
+				<img src="https://images.unsplash.com/photo-1596370743446-6a7ef43a36f9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80" />
+			</a>
+			<a href="https://images.unsplash.com/photo-1446630073557-fca43d580fbe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80">
+				<img src="https://images.unsplash.com/photo-1446630073557-fca43d580fbe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80" />
+			</a>
+		</div> -->
+
 		<?php
 
 		echo 'Hello WP Theme';
@@ -107,10 +129,6 @@ use Badfennec\Frontend\Components;
 		<div class="mt-10 mx-auto max-w-[800px]">
 			<?php Components::get_component( 'tabs-standard', $tabsArgs ); ?>
 		</div>
-
-		<pre class="mt-20">
-			<?php print_r( \Badfennec\Queries\PostQueries::get_post_related(1) ); ?>
-		</pre>
 
 	</div>
 

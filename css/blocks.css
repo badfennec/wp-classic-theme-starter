@@ -7,3 +7,5 @@
 @import './components/organisms/accordions.css';
 @import './components/organisms/tabs.css';
 @import './components/organisms/forms.css';
+
+@import './components/organisms/wooccommerce-product-variation.css';

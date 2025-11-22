@@ -1,0 +1,30 @@
+@reference 'tailwindcss';
+
+input[type="radio"], input[type="checkbox"] {
+	@apply appearance-none p-0 inline-block relative align-middle aspect-square border h-[1rem];
+
+    &:before {
+        @apply block absolute top-[50%] left-[50%] translate-x-[-50%] content-[''] transition-opacity opacity-0;
+    }
+
+    &:checked {
+        &:before {
+            @apply opacity-100;
+        }
+    }
+}
+
+input[type="radio"] {
+    @apply rounded-[50%];
+
+    &:before {
+        @apply block w-[40%] aspect-square bg-black rounded-[50%] translate-y-[-50%];
+    }
+}
+
+input[type="checkbox"] {
+
+    &:before {
+        @apply block w-[0.3rem] h-[0.5rem] rotate-40 border translate-y-[-70%]  border-l-0 border-t-0;
+    }
+}

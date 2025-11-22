@@ -52,6 +52,10 @@ class Init {
         if( \Badfennec\Utils\WP::is_login() ) {
             $services[] = new \Badfennec\Setup\LoginSettings();
         }
+
+        if ( WOOCOMMERCE_IS_ACTIVE ){
+            $services[] = new \Badfennec\Woocommerce\Setup();
+        }
         
         return $services;
     }

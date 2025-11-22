@@ -12,20 +12,32 @@ export function lightgallery_init( args ){
 
     const {elementsClasses} = args;
 
-	function add_gallery( c ){
+	/**
+	 * Add gallery to container
+	 * @param {*} c 
+	 * @returns 
+	 */
+	const add_gallery = ( c ) => {
 		return lightGallery( c, {
-			plugins: [lgZoom, lgThumbnail, lgVideo, lgFullScreen], /* lgHash, lgRotate, */ 
+			plugins: [lgZoom, lgThumbnail, lgVideo, lgFullScreen],
 			licenseKey: '',
 			speed: 500,
 			selector: 'a',
 			thumbnail: false,
-			//customSlideName: true,
 			autoplayVideoOnSlide: true,
 			gotoNextSlideOnVideoEnd: true,
+			mobileSettings: {
+				showCloseIcon: true,
+				fullScreen: false,
+			}
 		});
 	}
 
-    function set_content_gallery( c ){		
+	/**
+	 * Set gallery for content container
+	 * @param {*} c 
+	 */
+    const set_content_gallery = ( c ) => {		
 		const gallery = add_gallery( c );	
 		const isWooGallery = c.classList.contains('woocommerce-product-gallery__wrapper');
 
@@ -34,7 +46,12 @@ export function lightgallery_init( args ){
 		}
 	}
 
-	function setWooGallery( c, gallery ){
+	/**
+	 * Handle WooCommerce product gallery variations
+	 * @param {*} c 
+	 * @param {*} gallery 
+	 */
+	const setWooGallery = ( c, gallery ) => {
 		const $variationForm = jQuery(c).closest('.product').find('.variations_form');
 		let currentGallery = gallery;
 		

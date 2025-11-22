@@ -22,13 +22,16 @@ class Components {
         'button-arrow'          => 'atoms/button-arrow',
 
         'search-bar'            => 'molecules/search-bar',
+        'header-cart'           => 'molecules/woocommerce-header-cart',
 
         'header'                => 'organisms/header',
         'footer'                => 'organisms/footer',
         'social-list'           => 'organisms/social-list',
         'carousel-standard'     => 'organisms/carousel-standard',
         'accordion-standard'    => 'organisms/accordion-standard',   
-        'tabs-standard'         => 'organisms/tabs-standard',     
+        'tabs-standard'         => 'organisms/tabs-standard',   
+        
+        'product-variation'     => 'organisms/woocommerce-product-variation',
     ];
 
     /**
