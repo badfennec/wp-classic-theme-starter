@@ -38,59 +38,6 @@ body {
 	@apply grow;
 }
 
-#content {
-
-	table {
-		@apply border-separate;
-	}
-
-	.wc-block-components-sidebar-layout {
-
-		@apply grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-x-10;
-
-		.wc-block-components-main {
-			@apply pr-0 w-full md:col-span-3;
-		}
-
-		.wc-block-components-sidebar {
-			@apply pl-0 w-full md:col-span-2;
-		}
-	}
-
-	.u-columns {
-		@apply grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-x-10;
-
-		&::before, &::after {
-			content: none;
-		}
-
-		& > * {
-			@apply float-none w-full;
-		}
-	}
-
-	.woocommerce {
-
-		form {
-
-			&.checkout_coupon, &.login, &.register {
-				@apply border-black;
-			}
-
-		}
-
-	}
-
-}
-
-.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce #respond input#submit, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce a.button, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce button.button, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce input.button {
-		@apply bg-black text-white;
-	}
-
-	.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce #respond input#submit:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce a.button:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce button.button:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor)) .woocommerce input.button:hover {
-		@apply bg-pink-600 text-white;
-	}
-
 /* .full {
 	 @include functions.full();
 }

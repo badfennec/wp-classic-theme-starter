@@ -4,3 +4,8 @@
 @import './base/typography.css';
 @import  './components/atoms/checkbox-radio.css';
 @import './components/organisms/header.css';
+
+
+/*  import critical woocommerce css from here */
+@import './components/atoms/woocommerce-header-cart.css';
+@import './components/molecules/woocommerce-alerts.css';

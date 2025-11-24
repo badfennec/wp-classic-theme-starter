@@ -1,22 +1,18 @@
 const path = require('path');
-const glob = require('glob');
 
-const CleanPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { 
+    MiniCssExtractPlugin, 
+    CleanPlugin, 
+    RemoveEmptyScriptsPlugin 
+} = require('./webpack.plugins');
+
+const { getCssEntries } = require('./utils/get-css-entries');
+
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
-const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 
-function getCssEntries(pattern) {
-  const files = glob.sync(pattern);
-  return files.reduce((entries, file) => {
-    const name = path.basename(file, '.css');
-    entries[name] = path.resolve(file);
-    return entries;
-  }, {});
-}
 
-const cssEntries = getCssEntries(path.resolve(__dirname, 'css/components/**/*.css'));
+const cssEntries = getCssEntries(path.resolve(__dirname, '{css/components/**/*.css,css/woocommerce/*.css}'));
 
 module.exports = {
     mode: 'production',

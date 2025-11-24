@@ -1,5 +1,5 @@
 import '../css/login.css';
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('login.js loaded');
+document.addEventListener("DOMContentLoaded", function () {
+    //put here login JS code
 });

@@ -1,10 +1,31 @@
 @reference 'tailwindcss';
 
 input[type="radio"], input[type="checkbox"] {
-	@apply appearance-none p-0 inline-block relative align-middle aspect-square border h-[1rem];
+    position: relative !important;
+    display: inline-block !important;
+    width: 1rem !important;
+    height: 1rem !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin-top: .2rem !important;
+    margin-right: 0.5rem !important;
+    padding: 0 !important;
+    border: 1px solid !important;
+    border-radius: 0 !important;
+    vertical-align: middle !important;
+    left: auto !important;
+    transform: none !important;    
+
+	@apply appearance-none p-0 inline-block align-middle;
 
     &:before {
+        min-width: 0 !important;
+        min-height: 0 !important;
         @apply block absolute top-[50%] left-[50%] translate-x-[-50%] content-[''] transition-opacity opacity-0;
+    }
+
+    &:after {
+        display: none !important;
     }
 
     &:checked {
@@ -15,9 +36,13 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 input[type="radio"] {
-    @apply rounded-[50%];
+    border-radius: 50% !important;
 
     &:before {
+        width: 40% !important;
+        height: 40% !important;
+        left: 50% !important;
+        transform: none !important;
         @apply block w-[40%] aspect-square bg-black rounded-[50%] translate-y-[-50%];
     }
 }

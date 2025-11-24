@@ -1,0 +1,21 @@
+@reference 'tailwindcss';
+@reference '../abstract/tw-settings.css';
+
+.product {
+
+    .woocommerce-product-gallery__wrapper {
+        @apply grid grid-cols-4;
+
+        div {
+
+            width: 100% !important;
+
+            @apply first:col-span-4 aspect-16/9;
+
+            a {
+                @apply aspect-square w-full vctheme-img-cover;
+            }
+        }
+    }
+
+}

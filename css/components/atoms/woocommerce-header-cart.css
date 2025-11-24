@@ -1,0 +1,5 @@
+.wp-block-woocommerce-cart-link {
+    .wc-block-cart-link__text {
+        display: none !important;
+    }
+}

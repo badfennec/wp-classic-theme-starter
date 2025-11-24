@@ -14,7 +14,7 @@ export function woocommerceInit( args ){
 		});
 	}
 
-	if( document.querySelector(singleProductVariationSelector) ){
+	if( singleProductVariationSelector ){
 		import('./single-product-variations.js').then( ({ default: SingleProductVariations }) => {
 			new SingleProductVariations( singleProductVariationSelector );
 		});

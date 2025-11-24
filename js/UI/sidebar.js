@@ -1,57 +1,47 @@
 import StickySidebar from 'sticky-sidebar'
 
-export function sidebar_init( args ){
+export default class Sidebar {
 
-    const {elementsClasses} = args;
-	const body = document.body;
-	const html = document.documentElement;
+	sidebarEl = null;
+	stickySidebar = null;
 
-	function get_document_height(){
-		return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+	constructor( el ){
+		this.container = el;	
+
+		this.#init();
 	}
 
-    function set_sidebar( c ){
+	#init(){
+		this.sidebarEl = this.container.querySelector('.badfennec-sidebar-container__sidebar');
 
-		let sidebar = c.querySelector('.vctheme-sidebar-container__sidebar');
-
-		if( !sidebar )
+		if( !this.sidebarEl )
 			return;
 
-		if( !sidebar.id )
-			sidebar.setAttribute('id', c.id + '__sidebar' );
+		const randomID = Math.floor( Math.random() * 1000000 );
+		const container_id = 'badfennec-sidebar-container_' + randomID;
+		const sidebar_id = 'badfennec-sidebar_' + randomID;
 
-		let documentHeight = get_document_height();
+		this.container.setAttribute('id', container_id );
+		this.sidebarEl.setAttribute('id', sidebar_id );
 
-		const stickySidebar = new StickySidebar('#' + sidebar.id, {
-			containerSelector: '#' + c.id,
-			innerWrapperSelector: '.vctheme-sidebar-container__sidebar__inner',
+		this.#addSiedebar();
+		this.#addResizeObserver();
+	}
+
+	#addSiedebar(){
+		this.stickySidebar = new StickySidebar( '#' + this.sidebarEl.id, {
+			containerSelector: '#' + this.container.id,
+			innerWrapperSelector: '.badfennec-sidebar-container__content',
 			topSpacing: 30,
 			bottomSpacing: 0,
 		});
-
-		function check_window_height(){	
-
-			if( documentHeight != get_document_height() ){
-				documentHeight = get_document_height();
-				stickySidebar.updateSticky();
-			}
-
-			requestAnimationFrame( () => {
-				check_window_height();
-			});
-		}
-
-		check_window_height()
-
 	}
 
-	document.querySelectorAll(elementsClasses).forEach( ( c, i ) => {
-
-		if( !c.id )
-			c.setAttribute('id', 'vctheme-sidebar-container_' + i );
-
-		set_sidebar( c );
-
-	});
-
+	#addResizeObserver(){
+        this.resizeObserver = new ResizeObserver(() => {
+            this.stickySidebar.updateSticky();
+        });
+        
+        this.resizeObserver.observe(document.body); 
+    }
 }

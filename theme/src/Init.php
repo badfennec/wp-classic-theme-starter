@@ -53,6 +53,7 @@ class Init {
             $services[] = new \Badfennec\Setup\LoginSettings();
         }
 
+        //Here add Woocommerce setup if Woocommerce is active
         if ( WOOCOMMERCE_IS_ACTIVE ){
             $services[] = new \Badfennec\Woocommerce\Setup();
         }

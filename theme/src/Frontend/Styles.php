@@ -41,13 +41,16 @@ class Styles {
      */
     static array $dynamic_blocks_css_maps = [
 
-        'button-arrow'          =>  ['button-arrow.css'],
+        'button-arrow'                   =>  ['button-arrow.css'],
 
-		'carousel-standard'	    =>	['carousels.css'],
-        'accordion-standard'	=>	['accordions.css'],
-        'search-bar'            =>  ['search-bar.css', 'forms.css', 'badfennec-button-form.css'],
+		'carousel-standard'	            =>	['carousels.css'],
+        'accordion-standard'	        =>	['accordions.css'],
+        'search-bar'                    =>  ['search-bar.css', 'forms.css', 'badfennec-button-form.css'],
 
-        'product-variation'     =>  ['wooccommerce-product-variation.css'],
+        'product-variation'             =>  ['wooccommerce-product-variation.css'],
+        'woocommerce-reset'             =>  ['woocommerce-reset.css'],
+        'woocommerce-loop'              =>  ['woocommerce-loop.css'],
+        'woocommerce-single-product'    =>  ['woocommerce-loop.css', 'woocommerce-single-product.css']
 	];
 
     public function register() :void
@@ -82,16 +85,38 @@ class Styles {
     }
 
     /**
+     * Add critical CSS files to the critical stack
+     *
+     * @return void
+     */
+    public static function add_critical_to_stack( string $cssName ): void
+    {
+        if( !in_array( $cssName, self::$style_critical_stack ) ) {
+            self::$style_critical_stack[] = $cssName;
+        }
+    }
+
+    /**
      * Add critical CSS to the header
      *
      * @return void
      */
     public function enqueue_critical_css(): void
     {
-        $critical_path = THEME_DIR . '/assets/css/critical.css';
-        if ( file_exists( $critical_path ) ) {
-			echo '<style id="critical-css">' . file_get_contents( $critical_path ) . '</style>';
-		}
+        $base_dir = THEME_DIR . '/assets/css/';
+
+        $critical = '';
+
+        foreach( self::$style_critical_stack as $style ) {
+            $critical_path = $base_dir . $style;
+            if ( file_exists( $critical_path ) ) {
+                $critical .= file_get_contents( $critical_path );
+            }
+        }
+
+        if ( ! empty( $critical ) ) {
+            echo '<style id="critical-css">' . $critical . '</style>';
+        }
     }
 
     /**

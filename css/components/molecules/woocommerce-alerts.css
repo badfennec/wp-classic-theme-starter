@@ -1,0 +1,22 @@
+.woocommerce-error, .woocommerce-info, .woocommerce-message {
+    background-color: #fff;
+    padding: 20px 10px;
+    padding-left: 55px;
+    font-size: 14px;
+    line-height: 120%;
+
+    &::before {
+        font-size: 20px;
+        line-height: 1;
+        left: 20px;
+        top: 25px;
+    }
+
+    a {
+        float: none !important;
+        display: inline-flex !important;
+        justify-content: center;
+        align-items: center;
+        order: 10;
+    }
+}

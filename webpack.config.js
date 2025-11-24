@@ -1,20 +1,10 @@
 const path = require('path');
-const glob = require('glob');
 
-const CleanPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
-
-function getCssEntries(pattern) {
-  const files = glob.sync(pattern);
-  return files.reduce((entries, file) => {
-    const name = path.basename(file, '.css');
-    entries[name] = path.resolve(file);
-    return entries;
-  }, {});
-}
-
-const cssEntries = getCssEntries(path.resolve(__dirname, 'css/blocks/*.css'));
+const { 
+    MiniCssExtractPlugin, 
+    CleanPlugin, 
+    RemoveEmptyScriptsPlugin 
+} = require('./webpack.plugins');
 
 module.exports = {
     watch: true,

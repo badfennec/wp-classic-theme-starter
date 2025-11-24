@@ -12,4 +12,8 @@ if( is_cart () || is_checkout() ){
     return;
 }
 
-echo apply_filters('the_content', '<!-- wp:woocommerce/mini-cart {"addToCartBehaviour":"open_drawer", "productCountVisibility":"always"} /-->');
+?>
+
+<div class="badfennec-navbar__cart">
+    <?php echo apply_filters('the_content', '<!-- wp:woocommerce/mini-cart {"addToCartBehaviour":"open_drawer", "productCountVisibility":"always"} /-->'); ?>
+</div>

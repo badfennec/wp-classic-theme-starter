@@ -8,4 +8,10 @@
 @import './components/organisms/tabs.css';
 @import './components/organisms/forms.css';
 
+
+
+/* Import woocommerce blocks from here */
 @import './components/organisms/wooccommerce-product-variation.css';
+@import './woocommerce/woocommerce-reset.css';
+@import './woocommerce/woocommerce-loop.css';
+@import './woocommerce/woocommerce-single-product.css';

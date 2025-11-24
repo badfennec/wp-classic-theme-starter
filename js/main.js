@@ -1,21 +1,20 @@
 //import * as Vue from 'vue/dist/vue.esm-browser.prod.js';
-import Navbar from './UI/navbar.js';
+import Navbar from './ui/navbar.js';
 
 import '../css/main.css';
 
 document.addEventListener("DOMContentLoaded", function () {
-
-    console.log( 'welcome from new boot 2025/01 with webpack');
-
 	const BODY = document.body;
 	const carouselElementsClasses = '.badfennec-carousel-standard';
 	const lightGalleryElementsClasses = '.wp-block-gallery, .wp-block-gallery, .woocommerce-product-gallery__wrapper'; //'.wp-block-gallery, .woocommerce-product-gallery__wrapper';
 	const sidebarElementsClasses = '.badfennec-sidebar-container';
 
-	Navbar();
+	Navbar({
+		withScroll: true,
+	});
 
 	if( document.querySelectorAll( carouselElementsClasses ).length > 0 ){
-		import('./UI/carousel.js').then( ({ default: Carousel }) => {
+		import('./ui/carousel.js').then( ({ default: Carousel }) => {
 			document.querySelectorAll( carouselElementsClasses ).forEach( ( el ) => {
 				new Carousel( el );
 			} );
@@ -23,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	if( document.querySelectorAll( '.badfennec-accordion' ).length > 0 ){
-		import('./UI/accordion.js').then( ({ default: Accordion }) => {
+		import('./ui/accordion.js').then( ({ default: Accordion }) => {
 			document.querySelectorAll( '.badfennec-accordion' ).forEach( ( el ) => {
 				new Accordion( el );
 			} );
@@ -31,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	if( document.querySelectorAll( '.badfennec-tabs' ).length > 0 ){
-		import('./UI/tabs.js').then( ({ default: Tabs }) => {
+		import('./ui/tabs.js').then( ({ default: Tabs }) => {
 			document.querySelectorAll( '.badfennec-tabs' ).forEach( ( el ) => {
 				new Tabs( el );
 			} );
@@ -40,10 +39,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	if( document.querySelectorAll( lightGalleryElementsClasses ).length > 0 ){
 		
-		import('./UI/lightgallery.js').then( q => {
+		import('./ui/lightgallery.js').then( q => {
 			q.lightgallery_init({
 				elementsClasses: lightGalleryElementsClasses,
 			});
+		});
+	}
+
+	if( document.querySelectorAll(sidebarElementsClasses).length > 0 ){
+		import('./ui/sidebar.js').then( ({ default: Sidebar }) => {
+			document.querySelectorAll(sidebarElementsClasses).forEach( el => {
+				new Sidebar( el );
+			})
 		});
 	}
 
@@ -68,6 +75,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			event.preventDefault();
 			window.open( event.target.closest( 'a.blank' ).href );
 		}
+	});
+
+	import('./lib/lenis.js').then( q => {
+		q.initLenis();
 	});
 
 	const fetchTest = async () => {

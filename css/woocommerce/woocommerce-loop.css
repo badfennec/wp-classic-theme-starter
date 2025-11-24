@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 .woocommerce {
 
     .woocommerce-result-count, .woocommerce-ordering {
@@ -16,7 +18,7 @@
             margin: 0;
         }
 
-        @apply grid grid-cols-1 gap-cols justify-start;
+        @apply grid grid-cols-1 gap-3 justify-start;
 
         &:not(.columns-1){
 

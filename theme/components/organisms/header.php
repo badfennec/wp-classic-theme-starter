@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <a class="font-medium" href="<?php echo home_url('/') ?>">LOGO</a>
                 </div><!-- .logo -->
 
+                <?php \Badfennec\Frontend\Components::get_component('header-cart'); ?>
+
                 <div class="badfennec-navbar__hamb">
                     <span id = "hamb" class="" role = "button" aria-label = "Toggle navigation">
                         <span></span>
@@ -36,9 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                     </div><!-- .navbar__navigation-wrapper -->
 
-                </div><!-- .badfennec-navbar__navigation -->
-
-                <?php \Badfennec\Frontend\Components::get_component('header-cart'); ?>
+                </div><!-- .badfennec-navbar__navigation -->                
 
             </div><!-- .badfennec-navbar__container -->
             

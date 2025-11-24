@@ -1,0 +1,59 @@
+@reference 'tailwindcss';
+
+@import './woocommerce-buttons.css';
+
+#content {
+
+	table {
+		@apply border-separate;
+	}
+
+	.wc-block-components-sidebar-layout {
+
+		@apply grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-x-10;
+
+		.wc-block-components-main {
+			@apply pr-0 w-full md:col-span-3;
+		}
+
+		.wc-block-components-sidebar {
+			@apply pl-0 w-full md:col-span-2;
+		}
+	}
+
+	.u-columns {
+		@apply grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-x-10;
+
+		&::before, &::after {
+			content: none;
+		}
+
+		& > * {
+			@apply float-none w-full p-10 border rounded-md;
+		}
+	}
+
+	.woocommerce {
+
+		form {
+
+			&.checkout_coupon, &.login, &.register {
+				@apply border-black;
+			}
+
+		}
+
+	}
+
+	.wc-block-components-radio-control__option {
+		display: flex !important;
+		padding-left: 1em !important;
+	}
+
+	.wc-block-components-checkbox {
+		svg {
+			@apply hidden;
+		}
+	}
+
+}
