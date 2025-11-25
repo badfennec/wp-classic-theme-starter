@@ -1,12 +1,12 @@
 const path = require('path');
+const { getCssEntries } = require('./utils/get-css-entries');
 
 const { 
     MiniCssExtractPlugin, 
     CleanPlugin, 
-    RemoveEmptyScriptsPlugin 
+    RemoveEmptyScriptsPlugin,
+    CopyPlugin
 } = require('./webpack.plugins');
-
-const { getCssEntries } = require('./utils/get-css-entries');
 
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
@@ -80,6 +80,15 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'css/[name].css'
         }),
+        new CopyPlugin({
+            patterns: [
+                { 
+                    from: 'media/images', 
+                    to: 'media/images/[name][ext]',
+                    noErrorOnMissing: true
+                },
+            ]
+        })
     ],
     optimization: {
         minimize: true,

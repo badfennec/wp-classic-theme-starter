@@ -1,10 +1,14 @@
 const path = require('path');
+const { getCssEntries } = require('./utils/get-css-entries');
 
 const { 
     MiniCssExtractPlugin, 
     CleanPlugin, 
-    RemoveEmptyScriptsPlugin 
+    RemoveEmptyScriptsPlugin,
+    CopyPlugin
 } = require('./webpack.plugins');
+
+const cssEntries = getCssEntries(path.resolve(__dirname, '{css/components/**/*.css,css/woocommerce/*.css}'));
 
 module.exports = {
     watch: true,
@@ -14,7 +18,7 @@ module.exports = {
         backend: path.resolve(__dirname, 'js', 'backend.js'),
         login:  path.resolve(__dirname, 'js', 'login.js'),
         critical: path.resolve(__dirname, 'css', 'critical.css'),
-        blocks: path.resolve(__dirname, 'css', 'blocks.css'),
+        ...cssEntries,
     },
     output: {        
         path: path.resolve(__dirname, 'theme', 'assets'),
@@ -58,6 +62,9 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
+                generator: {
+                    filename: 'media/images/[name][ext]',
+                },
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -74,5 +81,14 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'css/[name].css'
         }),
+        new CopyPlugin({
+            patterns: [
+                { 
+                    from: 'media/images', 
+                    to: 'media/images/[name][ext]',
+                    noErrorOnMissing: true
+                },
+            ]
+        })
     ],
 };

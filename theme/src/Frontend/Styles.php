@@ -26,13 +26,12 @@ class Styles {
 
     /**
      * Dynamic blocks stack to be included in the footer
-     * Each dynamic block may have its own CSS file and if so, it will be added to the styles stack
-     * In Developer mode, all dynamic block CSS files are included for easier debugging in blocks.css
+     * Each dynamic block may have its own CSS file and if so, it will be added to the styles stack.
+     * All dynamic blocks CSS files are mapped in the $dynamic_blocks_css_maps array.
+     * The final CSS files will be included in the footer to avoid render blocking.
      * @var array
      */
-    static array $dynamic_blocks_stack = [
-		'blocks.css',
-	];
+    static array $dynamic_blocks_stack = [];
 
     /**
      * Mapping of dynamic block names to their CSS files
