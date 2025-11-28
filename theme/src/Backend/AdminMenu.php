@@ -1,7 +1,7 @@
 <?php
 
-namespace Badfennec\Backend;
-use Badfennec\Features\Options;
+namespace BadFennec\Backend;
+use BadFennec\Features\Options;
 
 if ( ! defined( 'ABSPATH' ) )
     die();

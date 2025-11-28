@@ -1,7 +1,7 @@
 <?php
 
-namespace Badfennec\Woocommerce;
-use Badfennec\Woocommerce\Utils as WoocommerceUtils;
+namespace BadFennec\Woocommerce;
+use BadFennec\Woocommerce\Utils as WoocommerceUtils;
 
 if ( ! defined( 'ABSPATH' ) )
     die();
@@ -34,16 +34,16 @@ class Setup {
             if( WoocommerceUtils::is_woocommerce_page() ){
 
                 // Enqueue WooCommerce specific styles here if needed
-                \BadFennec\Frontend\Styles::add_critical_to_stack( 'woocommerce-reset.css' );                
+                \BadFennec\Frontend\Styles\Critical::add_critical_to_stack( 'woocommerce-reset.css' );                
 
                 // Add to critical styles if on shop, product, category or tag pages. Change as needed if not is needed that the loop appear above the fold
                 if( is_shop() || is_product_category() || is_product_tag() ){
-                    \BadFennec\Frontend\Styles::add_critical_to_stack( 'woocommerce-loop.css' );
+                    \BadFennec\Frontend\Styles\Critical::add_critical_to_stack( 'woocommerce-loop.css' );
                 }
 
                 //The loop styes are loaded on product pages to style related products, upsells, and cross-sells
                 if( is_product() ){
-                    \BadFennec\Frontend\Styles::add_to_dynamic_blocks_stack( 'woocommerce-single-product' );
+                    \BadFennec\Frontend\Styles\DynamicBlocks::add_to_dynamic_blocks_stack( 'woocommerce-single-product' );
                 }
             }
         }

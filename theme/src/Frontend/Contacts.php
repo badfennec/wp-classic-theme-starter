@@ -1,10 +1,10 @@
 <?php
 
-namespace Badfennec\Frontend;
+namespace BadFennec\Frontend;
 
-use Badfennec\Utils\ACF;
-use Badfennec\Utils\SVG;
-use Badfennec\Features\Options;
+use BadFennec\Utils\ACF;
+use BadFennec\Utils\SVG;
+use BadFennec\Features\Options;
 
 if ( ! defined( 'ABSPATH' ) )
     die();

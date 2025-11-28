@@ -1,5 +1,5 @@
 <?php 
-use Badfennec\Frontend\Components;
+use BadFennec\Frontend\Components;
 
 	get_header();
 	

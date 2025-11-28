@@ -1,7 +1,14 @@
+# --- node dependencies ---
 /node_modules
+
+# --- Build Artifacts ---
 /theme/assets
+
+# --- Composer ---
 /theme/vendor
 package-lock.json
+
+# --- IDEs and Editors ---
 /stubs
 /.vscode
 .DS_Store

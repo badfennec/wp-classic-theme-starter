@@ -1,8 +1,8 @@
 <?php
 
-namespace Badfennec\Queries;
+namespace BadFennec\Queries;
 
-use Badfennec\Queries\Traits\QueryHelper;
+use BadFennec\Queries\Traits\QueryHelper;
 
 if ( ! defined( 'ABSPATH' ) )
     die();

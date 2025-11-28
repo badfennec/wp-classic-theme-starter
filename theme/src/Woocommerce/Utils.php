@@ -1,6 +1,6 @@
 <?php
 
-namespace Badfennec\Woocommerce;
+namespace BadFennec\Woocommerce;
 
 if ( ! defined( 'ABSPATH' ) )
     die();

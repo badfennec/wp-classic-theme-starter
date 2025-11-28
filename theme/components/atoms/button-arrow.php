@@ -35,5 +35,5 @@ if( @$args['reverse'] ){
 <a 
     class="<?php echo implode(' ', $class ) ?>" 
     <?php echo implode( ' ', $attrs) ?>
-><?php echo trim( esc_attr( @$args['title'] ) ); ?> <?php echo \Badfennec\Utils\SVG::print( $svgShape ) ?>
+><?php echo trim( esc_attr( @$args['title'] ) ); ?> <?php echo \BadFennec\Utils\SVG::print( $svgShape ) ?>
 </a>

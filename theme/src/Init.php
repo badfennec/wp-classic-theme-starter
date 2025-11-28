@@ -1,6 +1,6 @@
 <?php
 
-namespace Badfennec;
+namespace BadFennec;
 
 if ( ! defined( 'ABSPATH' ) )
 	die();
@@ -36,26 +36,26 @@ class Init {
     public static function get_services(): array
     {
         $services = [
-            new \Badfennec\Setup\ThemeSetup(),
-            new \Badfennec\Ajax\Handler(),
+            new \BadFennec\Setup\ThemeSetup(),
+            new \BadFennec\Ajax\Handler(),
         ];
 
         if( is_admin() ) {
-            $services[] = new \Badfennec\Setup\AdminSettings();
-            $services[] = new \Badfennec\Backend\AdminMenu();
+            $services[] = new \BadFennec\Setup\AdminSettings();
+            $services[] = new \BadFennec\Backend\AdminMenu();
         } else {
-            $services[] = new \Badfennec\Setup\FrontendSettings();
-            $services[] = new \Badfennec\Frontend\Styles();
-            $services[] = new \Badfennec\Frontend\Scripts();
+            $services[] = new \BadFennec\Setup\FrontendSettings();
+            $services[] = new \BadFennec\Frontend\Styles\Loader();
+            $services[] = new \BadFennec\Frontend\Scripts();
         }
 
-        if( \Badfennec\Utils\WP::is_login() ) {
-            $services[] = new \Badfennec\Setup\LoginSettings();
+        if( \BadFennec\Utils\WP::is_login() ) {
+            $services[] = new \BadFennec\Setup\LoginSettings();
         }
 
         //Here add Woocommerce setup if Woocommerce is active
         if ( WOOCOMMERCE_IS_ACTIVE ){
-            $services[] = new \Badfennec\Woocommerce\Setup();
+            $services[] = new \BadFennec\Woocommerce\Setup();
         }
         
         return $services;

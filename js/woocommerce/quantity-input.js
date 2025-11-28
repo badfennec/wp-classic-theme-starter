@@ -6,7 +6,7 @@ export default function setQuantityInput(){
 
 		let inputQuantity = b.parentNode.querySelector( 'input[type="number"]');
 		let max = inputQuantity.getAttribute( 'max' );
-		let currentValue = parseInt( inputQuantity.value );
+		let currentValue = parseInt( inputQuantity.value ) || 0;
 		let newValue = currentValue + n;
 
 		if( newValue < 1 || max && newValue > max )

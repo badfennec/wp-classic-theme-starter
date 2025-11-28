@@ -1,7 +1,7 @@
 <?php
 
 namespace BadFennec\Frontend;
-use Badfennec\Utils\FileHelper;
+use BadFennec\Utils\FileHelper;
 
 if ( ! defined( 'ABSPATH' ) )
     die();
@@ -26,8 +26,7 @@ class Scripts {
     private function wp_footer (): void
     {
         // Add footer scripts
-        add_action('wp_footer', [$this, 'enqueue_footer_scripts'], 9999);
-        
+        add_action('wp_footer', [$this, 'enqueue_footer_scripts'], 9999);        
     }
 
     /**
@@ -36,8 +35,8 @@ class Scripts {
      */
     public function enqueue_footer_scripts() : void
     {
-
-		$dep = array( 
+        // Localize main script with data
+		$script_data = array( 
 			'theme_url' 				=>		THEME_URL, 
 			'ajax_url' 					=>		admin_url( 'admin-ajax.php' ),
 			'is_woocommerce_active'		=>		WOOCOMMERCE_IS_ACTIVE,
@@ -46,9 +45,9 @@ class Scripts {
 
 		?>
 		
-		<script type="text/javascript" id="vctheme-main-js-js-extra">
+		<script type="text/javascript">
 		/* <![CDATA[ */
-		var vctheme = <?php echo json_encode($dep); ?>;
+		var vctheme = <?php echo json_encode($script_data); ?>;
 		/* ]]> */
 		</script>
 

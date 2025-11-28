@@ -1,7 +1,7 @@
 			
 			</div><!-- #content -->		
 			
-			<?php \Badfennec\Frontend\Components::get_component( 'footer' ); ?>
+			<?php \BadFennec\Frontend\Components::get_component( 'footer' ); ?>
 			
 		</div><!-- #container -->
 		

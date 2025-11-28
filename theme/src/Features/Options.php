@@ -1,6 +1,6 @@
 <?php
 
-namespace Badfennec\Features;
+namespace BadFennec\Features;
 
 class Options {
     static $main = 'badfennec-options';

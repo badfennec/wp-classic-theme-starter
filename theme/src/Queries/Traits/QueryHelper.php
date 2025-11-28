@@ -1,6 +1,6 @@
 <?php 
 
-namespace Badfennec\Queries\Traits;
+namespace BadFennec\Queries\Traits;
 use WP_Query;
 
 if ( ! defined( 'ABSPATH' ) )

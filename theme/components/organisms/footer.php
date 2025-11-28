@@ -3,8 +3,8 @@
 if ( ! defined( 'ABSPATH' ) )
 	die();
 
-$contacts = \Badfennec\Frontend\Contacts::get();
-$socials = \Badfennec\Frontend\Socials::get();
+$contacts = \BadFennec\Frontend\Contacts::get();
+$socials = \BadFennec\Frontend\Socials::get();
 
 ?>
 
@@ -14,7 +14,7 @@ $socials = \Badfennec\Frontend\Socials::get();
 
         <?php echo implode( '<br>', $contacts ); ?>
 
-        <?php \Badfennec\Frontend\Components::get_component( 'social-list' ); ?>
+        <?php \BadFennec\Frontend\Components::get_component( 'social-list' ); ?>
 
     </div><!-- .container -->
 

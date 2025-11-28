@@ -3,7 +3,7 @@
     "description": "A wp theme starter with composer",
     "autoload": {
         "psr-4": {
-            "Badfennec\\": "src/"
+            "BadFennec\\": "src/"
         }
     },
     "authors": [

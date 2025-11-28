@@ -18,4 +18,4 @@ ini_set('precision', 14);
 ini_set('serialize_precision', 14);
 
 require_once THEME_DIR . '/vendor/autoload.php';
-\Badfennec\Init::run();
+\BadFennec\Init::run();

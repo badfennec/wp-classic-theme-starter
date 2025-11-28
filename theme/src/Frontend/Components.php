@@ -1,15 +1,15 @@
 <?php
 
-namespace Badfennec\Frontend;
+namespace BadFennec\Frontend;
 
-use Badfennec\Frontend\Styles;
+use BadFennec\Frontend\Styles\DynamicBlocks;
 
 if ( ! defined( 'ABSPATH' ) )
     die();
 /**
  * Class Components
  * It deals with rendering frontend components
- * @package Badfennec\Frontend
+ * @package BadFennec\Frontend
  */
 class Components {
 
@@ -81,7 +81,7 @@ class Components {
         }
 
         // Add dynamic block CSS to the frontend settings
-        Styles::add_to_dynamic_blocks_stack( $componentKey );
+        DynamicBlocks::add_to_dynamic_blocks_stack( $componentKey );
 
         // Extract args and include the component file
         extract($args);

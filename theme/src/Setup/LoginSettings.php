@@ -1,6 +1,6 @@
 <?php
 
-namespace Badfennec\Setup;
+namespace BadFennec\Setup;
 
 if ( ! defined( 'ABSPATH' ) )
     die();
@@ -26,8 +26,8 @@ class LoginSettings {
      * @return string
      */
     public function login_enqueue_scripts() {
-        wp_enqueue_style( 'core', THEME_URL . '/assets/css/login.css', null, \Badfennec\Utils\FileHelper::get_file_timestamp( '/assets/css/login.css' ) );
-		wp_enqueue_script( 'theme-login-js', THEME_URL . '/assets/js/login.js', null, \Badfennec\Utils\FileHelper::get_file_timestamp( '/assets/js/login.js' ), true);
+        wp_enqueue_style( 'core', THEME_URL . '/assets/css/login.css', null, \BadFennec\Utils\FileHelper::get_file_timestamp( '/assets/css/login.css' ) );
+		wp_enqueue_script( 'theme-login-js', THEME_URL . '/assets/js/login.js', null, \BadFennec\Utils\FileHelper::get_file_timestamp( '/assets/js/login.js' ), true);
     }
 
     /**

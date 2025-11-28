@@ -41,7 +41,7 @@ if( !$loop || count( $loop ) == 0 )
 
                         <div class="badfennec-accordion__icon">
 
-                            <span class="block"><?php \Badfennec\Utils\SVG::print('arrow-up') ?></span>
+                            <span class="block"><?php \BadFennec\Utils\SVG::print('arrow-up') ?></span>
 
                         </div>
 

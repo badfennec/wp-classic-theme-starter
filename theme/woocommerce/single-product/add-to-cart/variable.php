@@ -32,7 +32,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 		<p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?></p>
 	<?php else : ?>
 
-		<?php \Badfennec\Frontend\Components::get_component( 'product-variation', ['product' => $product, 'available_variations' => $available_variations] ); ?>
+		<?php \BadFennec\Frontend\Components::get_component( 'product-variation', ['product' => $product, 'available_variations' => $available_variations] ); ?>
 
 		<table class="variations hidden" cellspacing="0" role="presentation">
 			<tbody>

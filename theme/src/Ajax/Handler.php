@@ -1,5 +1,5 @@
 <?php
-namespace Badfennec\Ajax;
+namespace BadFennec\Ajax;
 
 if ( ! defined( 'ABSPATH' ) )
     die();

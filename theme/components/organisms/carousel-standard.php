@@ -63,7 +63,7 @@ $init = array(
 
     </div>
 
-    <button class="prev"><?php echo \Badfennec\Utils\SVG::print('arrow-left') ?></button>
-    <button class="next"><?php echo \Badfennec\Utils\SVG::print('arrow-right') ?></button>
+    <button class="prev"><?php echo \BadFennec\Utils\SVG::print('arrow-left') ?></button>
+    <button class="next"><?php echo \BadFennec\Utils\SVG::print('arrow-right') ?></button>
     
 </div>

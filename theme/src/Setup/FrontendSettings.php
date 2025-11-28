@@ -1,6 +1,6 @@
 <?php
 
-namespace Badfennec\Setup;
+namespace BadFennec\Setup;
 
 if ( ! defined( 'ABSPATH' ) )
     die();

@@ -35,8 +35,8 @@ if( $mobile_id || $mobile_video ){
     
 
 if( $desktop_id || $desktop_video ){
-    $mobile_class[] = 'md:hidden';
-    $desktop_class[] = 'md:block';
+    $mobile_class[] = 'xl:hidden';
+    $desktop_class[] = 'xl:block';
 }
 
 $thumb_args = [];

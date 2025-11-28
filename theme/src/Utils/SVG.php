@@ -1,11 +1,11 @@
 <?php
 
-namespace Badfennec\Utils;
+namespace BadFennec\Utils;
 
 /**
  * SVG helper class
  * It allows to render or get SVG icons by slug
- * @package Badfennec\Utils
+ * @package BadFennec\Utils
  */
 class SVG {
 

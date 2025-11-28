@@ -3,7 +3,7 @@
 if ( ! defined( 'ABSPATH' ) )
     die();
 
-$socials = \Badfennec\Frontend\Socials::get();
+$socials = \BadFennec\Frontend\Socials::get();
 
 if( empty( $socials ) )
     return;
