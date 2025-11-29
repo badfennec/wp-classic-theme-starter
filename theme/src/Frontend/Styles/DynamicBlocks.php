@@ -37,10 +37,10 @@ class DynamicBlocks {
         'woocommerce-single-product'    =>  ['woocommerce-loop.css', 'woocommerce-single-product.css']
 	];
 
-    public function wp_footer(): void
+    public static function wp_footer(): void
     {
         // Add dynamic blocks CSS to the footer
-        add_action('wp_footer', [$this, 'enqueue_dynamic_blocks_css'], 9999);
+        add_action('wp_footer', [__CLASS__, 'enqueue_dynamic_blocks_css'], 9999);
     }
 
     /**
@@ -81,7 +81,7 @@ class DynamicBlocks {
      *
      * @return void
      */
-    public function enqueue_dynamic_blocks_css() : void 
+    public static function enqueue_dynamic_blocks_css() : void 
     {
 
 		if( count( self::$dynamic_blocks_stack ) === 0 )
@@ -96,6 +96,7 @@ class DynamicBlocks {
 			}
 		}
 
-		$this->render_preload_links( $sources );
+        $DynamicBlocks = new self();
+        $DynamicBlocks->render_preload_links( $sources );
 	}
 }

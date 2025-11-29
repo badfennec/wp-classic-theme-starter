@@ -23,7 +23,7 @@ class Loader {
     {
 
         \BadFennec\Frontend\Styles\Critical::wp_head();
-        (new \BadFennec\Frontend\Styles\Common())->wp_head();
+        \BadFennec\Frontend\Styles\Common::wp_head();
 
         // Preload fonts to improve performance
         //add_action( 'wp_head', array(__CLASS__, 'add_preaload_fonts'), 2 );
@@ -35,6 +35,6 @@ class Loader {
      */
     private function wp_footer (): void
     {
-        (new \BadFennec\Frontend\Styles\DynamicBlocks())->wp_footer();        
+        \BadFennec\Frontend\Styles\DynamicBlocks::wp_footer();        
     }
 }

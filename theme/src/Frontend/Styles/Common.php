@@ -18,10 +18,10 @@ class Common {
         'main.css',
     ];
 
-    public function wp_head(): void
+    public static function wp_head(): void
     {
         // Add main CSS to the header with preload
-        add_action( 'wp_head', [ $this, 'enqueue_main_css'] );
+        add_action( 'wp_head', [ __CLASS__, 'enqueue_main_css'] );
     }
 
     /**
@@ -31,7 +31,7 @@ class Common {
      *
      * @return void
      */
-    public function enqueue_main_css(): void {
+    public static function enqueue_main_css(): void {
 
         if( empty( self::$styles_stack ) ) {
             return;
@@ -46,6 +46,7 @@ class Common {
 			}
 		}
 
-        $this->render_preload_links( $sources );
+        $Common = new self();
+        $Common->render_preload_links( $sources );
     }
 }
