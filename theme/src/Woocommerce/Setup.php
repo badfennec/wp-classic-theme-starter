@@ -6,7 +6,7 @@ use BadFennec\Woocommerce\Utils as WoocommerceUtils;
 if ( ! defined( 'ABSPATH' ) )
     die();
 
-class Setup {
+class Setup implements \BadFennec\Setup\SetupInterface {
     
     public function register(): void
     {

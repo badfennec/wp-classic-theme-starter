@@ -1,5 +1,7 @@
 //import * as Vue from 'vue/dist/vue.esm-browser.prod.js';
 import Navbar from './ui/navbar.js';
+import addLenis from './ui/lenis.js';
+import { wpFetchData, fetchData, fetchRest } from './utils/fetch.js';
 
 import '../css/main.css';
 
@@ -77,19 +79,19 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
-	import('./lib/lenis.js').then( q => {
-		q.initLenis();
-	});
+	addLenis();
 
-	const fetchTest = async () => {
+	const fetchTest = async ( action ) => {
 
 		const FD = new FormData();
-		FD.append( 'action', 'badfennec_test_action' );
-		FD.append( 'nonce', vctheme.ajax_nonce );
+		FD.append( 'action', action );
 
-		try {
+		/* try {
 			const responseRequest = await fetch( vctheme.ajax_url, {
 				method: 'POST',
+				headers: {
+					'x-nonce': `${vctheme.ajax_nonce}`
+				},
 				body: FD
 			});
 
@@ -103,10 +105,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		} catch ( error ) {
 			console.error( error );
-		}
+		} */
+
+		const response = await wpFetchData({ 
+			url: `${vctheme.ajax_url}`, 
+			fetchOptions: {
+				method: 'POST',
+				body: FD,
+			} 
+		});
+		console.log( response?.message );
 	}
 
-	fetchTest();
+	fetchTest('badfennec_test_action');
+	//fetchTest('badfennec_private_action');
+
+	(async () => {
+		try {
+			const response2 = await fetchRest({ 
+				endpoint: `badfennecapi/v1/user`,
+			});
+
+			console.log( response2 );
+		} catch ( error ) {
+			console.error( error );
+		}
+	})();
 });
 
 function in_window(el, callback, repeat, callbackOut){

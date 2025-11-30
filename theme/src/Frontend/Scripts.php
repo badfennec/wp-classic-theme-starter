@@ -9,38 +9,62 @@ if ( ! defined( 'ABSPATH' ) )
 class Scripts {
 
     /**
-     * Register WP hooks for this service.
+     * Add all JS scripts to the frontend
      *
      * @return void
      */
-    public function register() :void
+    public static function init() :void
     {
+        // Enqueue frontend scripts and styles here
+        add_action(	'wp_enqueue_scripts', [__CLASS__, 'remove_unnecessary_scripts']);
+
         // Add footer scripts
-        $this->wp_footer();
+        self::wp_footer();
+    }
+
+    /**
+     * Remove unnecessary scripts and styles from the frontend
+     * @return void
+     */
+    public static function remove_unnecessary_scripts(): void
+    {
+        // Dequeue Gutenberg block library CSS
+        // Comment out these lines if you want to keep the block library styles
+        wp_dequeue_style('wp-block-library');
+		wp_dequeue_style('wp-block-library-theme');
+		wp_dequeue_style('global-styles');
+		wp_dequeue_style('classic-theme-styles');
+
+        // Disable emoji scripts and styles
+        remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+        remove_action( 'wp_print_styles', 'print_emoji_styles' );
+        add_filter('emoji_svg_url', '__return_false');
     }
 
     /**
      * Add footer scripts
      * @return void
      */
-    private function wp_footer (): void
+    private static function wp_footer (): void
     {
         // Add footer scripts
-        add_action('wp_footer', [$this, 'enqueue_footer_scripts'], 9999);        
+        add_action('wp_footer', [__CLASS__, 'enqueue_footer_scripts'], 9999);        
     }
 
     /**
      * Add footer scripts
      * @return void
      */
-    public function enqueue_footer_scripts() : void
+    public static function enqueue_footer_scripts() : void
     {
         // Localize main script with data
 		$script_data = array( 
 			'theme_url' 				=>		THEME_URL, 
+            'rest_url'                  =>      esc_url_raw( rest_url() ),
 			'ajax_url' 					=>		admin_url( 'admin-ajax.php' ),
 			'is_woocommerce_active'		=>		WOOCOMMERCE_IS_ACTIVE,
-            'ajax_nonce'                =>      wp_create_nonce( BADFENNEC_AJAX_NONCE )
+            'ajax_nonce'                =>      wp_create_nonce( BADFENNEC_AJAX_NONCE ),
+            'rest_nonce'                =>      wp_create_nonce( 'wp_rest' ),
 		);
 
 		?>

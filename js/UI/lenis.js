@@ -1,7 +1,7 @@
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 
-export function initLenis() {
+export default function addLenis() {
 
     const lenis = new Lenis({
 		lerp: 0.1,

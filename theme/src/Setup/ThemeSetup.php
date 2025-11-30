@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) )
 /**
  * ThemeSetup: handle base theme configuration and global assets.
  */
-class ThemeSetup {
+class ThemeSetup implements SetupInterface {
     /**
      * Register WP hooks for this service.
      *

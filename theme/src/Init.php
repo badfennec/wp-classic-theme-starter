@@ -20,8 +20,8 @@ class Init {
         $services = self::get_services();
 
         // Register all the services calling their register method if it exists
-        foreach ($services as $service) {
-            if (method_exists($service, 'register')) {
+        foreach ( $services as $service ) {
+            if ( method_exists( $service, 'register' )) {
                 $service->register();
             }
         }
@@ -37,16 +37,14 @@ class Init {
     {
         $services = [
             new \BadFennec\Setup\ThemeSetup(),
-            new \BadFennec\Ajax\Handler(),
+            new \BadFennec\Setup\AjaxSettings(),
+            new \BadFennec\Setup\RestApiSettings(),
         ];
 
         if( is_admin() ) {
             $services[] = new \BadFennec\Setup\AdminSettings();
-            $services[] = new \BadFennec\Backend\AdminMenu();
         } else {
             $services[] = new \BadFennec\Setup\FrontendSettings();
-            $services[] = new \BadFennec\Frontend\Styles\Loader();
-            $services[] = new \BadFennec\Frontend\Scripts();
         }
 
         if( \BadFennec\Utils\WP::is_login() ) {

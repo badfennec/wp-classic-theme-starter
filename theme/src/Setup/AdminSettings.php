@@ -15,6 +15,13 @@ class AdminSettings {
     {
         // Register admin settings here
         add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
+
+        /**
+         * Backend features start here
+         */
+        
+        // Add admin menu items
+        \BadFennec\Backend\AdminMenu::add_menu();
     }
 
     /**

@@ -8,18 +8,22 @@ if ( ! defined( 'ABSPATH' ) )
 
 class Loader { 
 
-    use StyleRendererTrait;    
-
-    public function register() :void
+    /**
+     * Add all CSS styles to the frontend
+     * Critical are added in the head, common in the head, dynamic blocks in the footer
+     *
+     * @return void
+     */
+    public static function init() :void
     {
         // Add header scripts
-        $this->wp_head();
+        self::wp_head();
 
         // Add footer scripts
-        $this->wp_footer();
+        self::wp_footer();
     }
 
-    private function wp_head (): void
+    private static function wp_head (): void
     {
 
         \BadFennec\Frontend\Styles\Critical::wp_head();
@@ -33,7 +37,7 @@ class Loader {
      * Add footer styles
      * @return void
      */
-    private function wp_footer (): void
+    private static function wp_footer (): void
     {
         \BadFennec\Frontend\Styles\DynamicBlocks::wp_footer();        
     }

@@ -15,29 +15,11 @@ class FrontendSettings {
     public function register() :void
     {
         // Register frontend settings here
-        
-        // Enqueue frontend scripts and styles here
-        add_action(	'wp_enqueue_scripts', [$this, 'remove_unnecessary_scripts']);
+        \BadFennec\Frontend\Styles\Loader::init();
+        \BadFennec\Frontend\Scripts::init();
     }
 
-    /**
-     * Remove unnecessary scripts and styles from the frontend
-     * @return void
-     */
-    public function remove_unnecessary_scripts(): void
-    {
-        // Dequeue Gutenberg block library CSS
-        // Comment out these lines if you want to keep the block library styles
-        wp_dequeue_style('wp-block-library');
-		wp_dequeue_style('wp-block-library-theme');
-		wp_dequeue_style('global-styles');
-		wp_dequeue_style('classic-theme-styles');
-
-        // Disable emoji scripts and styles
-        remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-        remove_action( 'wp_print_styles', 'print_emoji_styles' );
-        add_filter('emoji_svg_url', '__return_false');
-    }
+    
 
     /**
      * Preload featured image to improve performance
