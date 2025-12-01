@@ -36,6 +36,10 @@ use BadFennec\Frontend\Components;
 			'mobile_id'	=> 5,
 			'video_desktop' => 'http://localhost:10432/wp-content/uploads/2025/11/mov_bbb.mp4'
 		] );
+		Components::get_component( 'thumb-handler', [
+			'mobile_id'	=> 5,
+			'video_desktop' => 'http://localhost:10432/wp-content/uploads/2025/11/mov_bbb.mp4'
+		] );
 		echo 'Hello WP Theme';
 
 		Components::get_component( 'carousel-standard' );

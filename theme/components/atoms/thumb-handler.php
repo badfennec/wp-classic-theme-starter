@@ -4,21 +4,26 @@ if ( ! defined( 'ABSPATH' ) ) {
     die();
 }
 
-function vctheme_block_image_get_video( $args ){
+if( !function_exists('badfennec_thumb_handler_get_video') ){
 
-    ob_start();
+    function badfennec_thumb_handler_get_video( array $args = [] ) : string {
 
-    ?>
+        ob_start();
 
-    <video loop autoplay muted playsinline class="<?php echo @$args['class'] ?>">
-        <source src="<?php echo @$args['url'] ?>" type="video/mp4">
-    </video>
+        ?>
 
-    <?php
+        <video loop autoplay muted playsinline class="<?php echo @$args['class'] ?>">
+            <source src="<?php echo @$args['url'] ?>" type="video/mp4">
+        </video>
 
-    return ob_get_clean();
+        <?php
+
+        return ob_get_clean();
+
+    }
 
 }
+
 
 $mobile_item = '';
 $desktop_item = '';
@@ -53,7 +58,7 @@ if( $mobile_id ){
 }
 
 if( $mobile_video )
-    $mobile_item = vctheme_block_image_get_video( array( 'url' => $mobile_video, 'class' => implode(' ', $mobile_class ) ) );
+    $mobile_item = badfennec_thumb_handler_get_video( array( 'url' => $mobile_video, 'class' => implode(' ', $mobile_class ) ) );
 
 if( $desktop_id ){
     $thumb_args['class'] = implode(' ', $desktop_class );
@@ -61,7 +66,7 @@ if( $desktop_id ){
 }
 
 if( $desktop_video )
-    $desktop_item = vctheme_block_image_get_video( array( 'url' => $desktop_video, 'class' => implode(' ', $desktop_class ) ) );
+    $desktop_item = badfennec_thumb_handler_get_video( array( 'url' => $desktop_video, 'class' => implode(' ', $desktop_class ) ) );
 
 echo $mobile_item;
 echo $desktop_item;
