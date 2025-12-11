@@ -3,7 +3,6 @@ const { getCssEntries } = require('./utils/get-css-entries');
 
 const { 
     MiniCssExtractPlugin, 
-    CleanPlugin, 
     RemoveEmptyScriptsPlugin,
     CopyPlugin
 } = require('./webpack.plugins');
@@ -32,10 +31,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.scss$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
-            },
             {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
@@ -75,7 +70,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new CleanPlugin.CleanWebpackPlugin(),
         new RemoveEmptyScriptsPlugin(),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css'
