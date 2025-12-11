@@ -2,7 +2,10 @@ const path = require('path');
 const glob = require('glob');
 
 function getCssEntries( pattern ) {
-    const files = glob.sync( pattern );
+    const normalizedPattern = pattern.replace(/\\/g, '/');
+    const globFunction = glob.globSync ? glob.globSync : glob.sync;
+    
+    const files = globFunction( normalizedPattern );
 
     return files.reduce( (entries, file) => {
         const name = path.basename(file, '.css');

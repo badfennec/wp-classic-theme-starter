@@ -3,7 +3,6 @@ const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    //CleanPlugin,
     MiniCssExtractPlugin,
     RemoveEmptyScriptsPlugin,
     CopyPlugin
