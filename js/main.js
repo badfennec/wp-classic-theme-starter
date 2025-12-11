@@ -1,6 +1,7 @@
 //import * as Vue from 'vue/dist/vue.esm-browser.prod.js';
 import Navbar from './ui/navbar.js';
 import addLenis from './ui/lenis.js';
+import DynamicImport from './utils/dynamicImport.js';
 import { wpFetchData, fetchData, fetchRest } from './utils/fetch.js';
 
 import '../css/main.css';
@@ -15,46 +16,45 @@ document.addEventListener("DOMContentLoaded", function () {
 		withScroll: true,
 	});
 
-	if( document.querySelectorAll( carouselElementsClasses ).length > 0 ){
+	new DynamicImport({ items: document.querySelectorAll( carouselElementsClasses ), callback: ( items ) => {
 		import('./ui/carousel.js').then( ({ default: Carousel }) => {
-			document.querySelectorAll( carouselElementsClasses ).forEach( ( el ) => {
+			items.forEach( ( el ) => {
 				new Carousel( el );
 			} );
 		});
-	}
+	} });
 
-	if( document.querySelectorAll( '.badfennec-accordion' ).length > 0 ){
+	new DynamicImport({ items: document.querySelectorAll( '.badfennec-accordion' ), callback: ( items ) => {
 		import('./ui/accordion.js').then( ({ default: Accordion }) => {
-			document.querySelectorAll( '.badfennec-accordion' ).forEach( ( el ) => {
+			items.forEach( ( el ) => {
 				new Accordion( el );
 			} );
 		});
-	}
+	} });
 
-	if( document.querySelectorAll( '.badfennec-tabs' ).length > 0 ){
+	new DynamicImport({ items: document.querySelectorAll( '.badfennec-tabs' ), callback: ( items ) => {
 		import('./ui/tabs.js').then( ({ default: Tabs }) => {
-			document.querySelectorAll( '.badfennec-tabs' ).forEach( ( el ) => {
+			items.forEach( ( el ) => {
 				new Tabs( el );
 			} );
 		});
-	}
+	} });
 
-	if( document.querySelectorAll( lightGalleryElementsClasses ).length > 0 ){
-		
+	new DynamicImport({ items: document.querySelectorAll( lightGalleryElementsClasses ), callback: ( items ) => {
 		import('./ui/lightgallery.js').then( q => {
 			q.lightgallery_init({
 				elementsClasses: lightGalleryElementsClasses,
 			});
 		});
-	}
+	} });
 
-	if( document.querySelectorAll(sidebarElementsClasses).length > 0 ){
+	new DynamicImport({ items: document.querySelectorAll(sidebarElementsClasses), callback: ( items ) => {
 		import('./ui/sidebar.js').then( ({ default: Sidebar }) => {
-			document.querySelectorAll(sidebarElementsClasses).forEach( el => {
+			items.forEach( el => {
 				new Sidebar( el );
 			})
 		});
-	}
+	} });
 
 	if( vctheme.is_woocommerce_active ){
 
@@ -86,27 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		const FD = new FormData();
 		FD.append( 'action', action );
 
-		/* try {
-			const responseRequest = await fetch( vctheme.ajax_url, {
-				method: 'POST',
-				headers: {
-					'x-nonce': `${vctheme.ajax_nonce}`
-				},
-				body: FD
-			});
-
-			const response =  await responseRequest.json();
-
-			if (response.success) {
-				console.log(response.data);
-			} else {
-				throw new Error( response?.data?.message || 'Fetch request failed' );
-			}
-
-		} catch ( error ) {
-			console.error( error );
-		} */
-
 		const response = await wpFetchData({ 
 			url: `${vctheme.ajax_url}`, 
 			fetchOptions: {
@@ -132,59 +111,3 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	})();
 });
-
-function in_window(el, callback, repeat, callbackOut){
-
-	if ("IntersectionObserver" in window) {
-
-		var imageObserver = new IntersectionObserver(function(entries, observer) {
-
-			entries.forEach(function(entry) {
-
-				if (entry.isIntersecting) {
-					if(callback)
-						callback(el);
-
-					if(!repeat)
-						imageObserver.unobserve(el);
-
-				} else {
-					if(callbackOut)
-						callbackOut(el);
-				}
-			});
-		});
-
-		imageObserver.observe(el);
-
-	} else {  
-
-		var timeout;
-
-		function in_window_old() {
-			if(timeout) {
-				clearTimeout(timeout);
-			} 
-
-			timeout = setTimeout(function() {
-				var scrollTop = $document.scrollTop();
-				if($(el).offset().top < (window.innerHeight + scrollTop)) {
-				  if(callback)
-						callback(el);
-
-					if(!repeat) {
-						clearTimeout(timeout);
-						document.removeEventListener("scroll", in_window_old);
-						window.removeEventListener("resize", in_window_old);
-						window.removeEventListener("orientationChange", in_window_old);
-					}
-				}
-			}, 20);
-		}
-
-		in_window_old();
-		document.addEventListener("scroll", in_window_old);
-		window.addEventListener("resize", in_window_old);
-		window.addEventListener("orientationChange", in_window_old);
-	}
-}

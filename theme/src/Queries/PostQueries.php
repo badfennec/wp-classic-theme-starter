@@ -19,7 +19,8 @@ class PostQueries {
      * @param array $args Additional query arguments (e.g., 'posts_per_page').
      * @return array Array of related WP_Post objects.
      */
-    public static function get_post_related( int $post_id, array $category_ids = [], array $args = [] ){        
+    public static function get_post_related( int $post_id, array $category_ids = [], array $args = [] ): array
+    {        
 
         return self::get_taxonomy_query(
             post_id : $post_id, 
