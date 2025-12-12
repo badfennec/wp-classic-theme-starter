@@ -28,6 +28,7 @@ class DynamicBlocks {
         'button-arrow'                  =>  ['button-arrow.css'],
 
 		'carousel-standard'	            =>	['carousels.css'],
+        'tabs-standard'	                =>	['tabs.css'],
         'accordion-standard'	        =>	['accordions.css'],
         'search-bar'                    =>  ['search-bar.css', 'forms.css', 'badfennec-button-form.css'],
 
