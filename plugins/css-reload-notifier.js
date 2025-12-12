@@ -1,14 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const INDEX_HTML = path.join(__dirname, 'index.html');
-const ALLOWED_WATCH_PATHS = [
-    'css/',              
-    'theme/components',
-    'theme/woocommerce',
-];
-
-export default function ReloadNotifierPlugin() {
+export default function ReloadNotifierPlugin({ INDEX_HTML, ALLOWED_WATCH_PATHS }) {
     let shouldReload = false;
 
     return {

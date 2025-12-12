@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <div class="badfennec-navbar__container">
                 <div class="badfennec-navbar__logo text-pink-600">
-                    <a class="font-medium" href="<?php echo home_url('/') ?>">LOGO</a>
+                    <a class="block w-[50px]" href="<?php echo home_url('/') ?>"><img src="<?php echo THEME_URL ?>/assets/media/images/logo.webp" alt="Logo"></a>
                 </div><!-- .logo -->
 
                 <?php \BadFennec\Frontend\Components::get_component('header-cart'); ?>

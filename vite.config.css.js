@@ -10,6 +10,14 @@ import { handleAssetInfo } from './utils/handle-asset-info';
 const cssEntries = getCssEntries(path.resolve(__dirname, '{css/components/**/*.css,css/woocommerce/*.css}'));
 const ASSET_DIR = path.resolve(__dirname, 'theme', 'assets');
 
+const INDEX_HTML = path.join(__dirname, 'index.html');
+
+const ALLOWED_WATCH_PATHS = [
+    'css/',              
+    'theme/components',
+    'theme/woocommerce',
+];
+
 import ReloadNotifierPlugin from './plugins/css-reload-notifier';
 export default defineConfig({
     mode: 'development',    
@@ -23,7 +31,7 @@ export default defineConfig({
                 }
             ]
         }),
-        ReloadNotifierPlugin()
+        ReloadNotifierPlugin( { INDEX_HTML, ALLOWED_WATCH_PATHS } )
     ],
     build: {
         outDir: ASSET_DIR,
