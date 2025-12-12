@@ -52,11 +52,32 @@ class Scripts {
     }
 
     /**
+     * Get asset URL considering dev mode (Vite hot reloading)
+     *
+     * @param string $entry_point
+     * @return array [url, version]
+     */
+    private static function get_assets_url( string $entry_point ) : array
+    {
+        $assets_dir = THEME_DIR . '/assets';
+
+        $hot_file_path = $assets_dir . '/hot';
+
+        if (file_exists($hot_file_path)) {
+            $url = file_get_contents( $hot_file_path );
+            return [rtrim(trim($url), '/') . '/' . $entry_point, time()];
+        }
+
+        return [THEME_URL . '/assets/' . $entry_point, FileHelper::get_file_timestamp( '/assets/' . $entry_point ) ];
+    }
+
+    /**
      * Add footer scripts
      * @return void
      */
     public static function enqueue_footer_scripts() : void
     {
+
         // Localize main script with data
 		$script_data = array( 
 			'theme_url' 				=>		THEME_URL, 
@@ -67,15 +88,18 @@ class Scripts {
             'rest_nonce'                =>      wp_create_nonce( 'wp_rest' ),
 		);
 
+        // Check if we are in dev mode or production
+        $main_script = self::get_assets_url('js/main.js');
+
 		?>
 		
 		<script type="text/javascript">
 		/* <![CDATA[ */
-		var vctheme = <?php echo json_encode($script_data); ?>;
+		window.badfennec = <?php echo json_encode($script_data); ?>;
 		/* ]]> */
 		</script>
 
-		<script type = "module" src = "<?php echo esc_url( THEME_URL . '/assets/js/main.js?v=' . FileHelper::get_file_timestamp( '/assets/js/main.js' ) ); ?>"></script>
+		<script type = "module" src = "<?php echo esc_url( $main_script[0] . '?v=' . $main_script[1] ); ?>"></script>
 
 		<?php
 	}

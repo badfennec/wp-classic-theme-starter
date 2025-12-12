@@ -35,7 +35,7 @@ class AdminSettings {
         wp_enqueue_style( 'theme-backend-style', THEME_URL . '/assets/css/backend.css', null, \BadFennec\Utils\FileHelper::get_file_timestamp( '/assets/css/backend.css' ) );
 		wp_enqueue_script( 'theme-backend-js', THEME_URL . '/assets/js/backend.js', [], \BadFennec\Utils\FileHelper::get_file_timestamp( '/assets/js/backend.js' ), true);
 
-		wp_localize_script( 'theme-backend-js', 'vctheme_ajaxurl', array( 
+		wp_localize_script( 'theme-backend-js', 'badfennec_ajaxurl', array( 
 			'theme_url' 				=> THEME_URL,
 			'ajax_url' 					=> admin_url( 'admin-ajax.php' ) 
 		) );

@@ -13,7 +13,7 @@
             @apply first:col-span-4 aspect-16/9;
 
             a {
-                @apply aspect-square w-full vctheme-img-cover;
+                @apply aspect-square w-full badfennec-img-cover;
             }
         }
     }

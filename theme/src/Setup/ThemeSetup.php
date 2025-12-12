@@ -17,6 +17,9 @@ class ThemeSetup implements SetupInterface {
     public function register() :void
     {
         add_action( 'after_setup_theme', [ $this, 'after_setup_theme'] );
+
+        // Disable automatic updates for the theme
+        add_filter( 'automatic_updater_disabled', '__return_true' );
     }
 
     /**

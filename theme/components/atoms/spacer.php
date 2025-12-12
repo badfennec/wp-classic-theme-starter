@@ -10,7 +10,7 @@ $style = array();
 if( @$args['id'] )
     $tags[] = 'id = "'. $args['id'] .'"';
 
-$class = array('vctheme-block-spacer');
+$class = array('badfennec-block-spacer');
 
 if( @$args['hide_on_mobile'] ){
     $class[] = 'hidden xl:block';

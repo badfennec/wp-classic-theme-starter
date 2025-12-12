@@ -15,7 +15,7 @@ class Common {
      * @var array
      */
     static array $styles_stack = [
-        'main.css',
+        'common.css',
     ];
 
     public static function wp_head(): void

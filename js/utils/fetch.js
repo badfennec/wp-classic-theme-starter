@@ -55,9 +55,9 @@ async function fetchData({ url, fetchOptions = {}, headers = {}, timeout = 5000 
  */
 async function fetchRest({ endpoint, fetchOptions = {}, headers = {}, timeout = 5000 }) {
     const response = await fetchData({ 
-        url: `${vctheme.rest_url}${endpoint}`,
+        url: `${badfennec.rest_url}${endpoint}`,
         headers: {
-            'X-WP-Nonce': `${vctheme.rest_nonce}`,
+            'X-WP-Nonce': `${badfennec.rest_nonce}`,
             ...headers,
         },
         fetchOptions,
@@ -78,7 +78,7 @@ async function wpFetchData({ url, fetchOptions, headers, timeout = 5000 }) {
     const response = await fetchData({ 
         url, 
         headers: {
-            'x-nonce': `${vctheme.ajax_nonce}`
+            'x-nonce': `${badfennec.ajax_nonce}`
         },
         fetchOptions: { method: 'POST', ...fetchOptions },
         timeout

@@ -1,10 +1,10 @@
 @reference 'tailwindcss';
 
-.vctheme-social-share {
+.badfennec-social-share {
 
 	@apply flex items-center gap-[20px];
 
-	.vctheme-social-share__icons {
+	.badfennec-social-share__icons {
 		@apply flex items-center gap-[10px];
 	}
 
@@ -16,11 +16,11 @@
 
 }
 
-.vctheme-socials-list {
+.badfennec-socials-list {
 	@apply inline-flex items-center gap-[10px];
-}/* .vctheme-socials-list */
+}/* .badfennec-socials-list */
 
-.vctheme-loop-pagination {
+.badfennec-loop-pagination {
 
 	@apply mt-[70px] pt-[50px] border-solid border-t border-t-black;
 

@@ -4,9 +4,9 @@ import addLenis from './ui/lenis.js';
 import DynamicImport from './utils/dynamicImport.js';
 import { wpFetchData, fetchData, fetchRest } from './utils/fetch.js';
 
-import '../css/main.css';
-
 document.addEventListener("DOMContentLoaded", function () {
+
+	const badfennec = window.badfennec || {};
 	const BODY = document.body;
 	const carouselElementsClasses = '.badfennec-carousel-standard';
 	const lightGalleryElementsClasses = '.wp-block-gallery, .wp-block-gallery, .woocommerce-product-gallery__wrapper'; //'.wp-block-gallery, .woocommerce-product-gallery__wrapper';
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	} });
 
-	if( vctheme.is_woocommerce_active ){
+	if( badfennec.is_woocommerce_active ){
 
 		import('./woocommerce/init.js').then( q => {
 			q.woocommerceInit({
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		FD.append( 'action', action );
 
 		const response = await wpFetchData({ 
-			url: `${vctheme.ajax_url}`, 
+			url: `${badfennec.ajax_url}`, 
 			fetchOptions: {
 				method: 'POST',
 				body: FD,

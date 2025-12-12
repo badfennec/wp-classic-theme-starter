@@ -6,7 +6,7 @@
     @apply mx-auto px-4;
 }
 
-@utility vctheme-font-inerith {
+@utility badfennec-font-inerith {
 	& > * {
 		font-size: inherit;
 		line-height: inherit;
@@ -19,7 +19,7 @@
 	}
 }
 
-@utility vctheme-img-cover {
+@utility badfennec-img-cover {
     @apply block relative;
 
 	img, video {
