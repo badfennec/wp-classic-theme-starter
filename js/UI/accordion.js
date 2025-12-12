@@ -5,7 +5,7 @@ import Reactive from '../utils/reactive.js';
  */
 export default class Accordion {
 
-	currentItem = 0;
+	currentIndex = 0;
 	accordionReactive = null;
 
 	constructor( el ){
@@ -32,6 +32,8 @@ export default class Accordion {
 
 		// Add ResizeObserver
 		this.#addResizeObserver();		
+
+		this.#setItemHeight( this.items[this.currentIndex] );
 	}
 
 	/**
@@ -40,7 +42,7 @@ export default class Accordion {
 	 */
 	#addSubscribe(){
 		this.accordionReactive = new Reactive({
-			currentItem: 0,
+			currentIndex: 0,
 		});
 
 		// Add subscribe callback
@@ -64,7 +66,7 @@ export default class Accordion {
 		button.addEventListener( 'click', ( e ) => {
 			e.preventDefault();			
 			this.accordionReactive.next({
-				currentItem: this.currentItem === index ? -1 : index,
+				currentIndex: this.currentIndex === index ? -1 : index,
 			});
 		} );
 
@@ -88,7 +90,7 @@ export default class Accordion {
 			});
         });
         
-        this.resizeObserver.observe(document.body); 
+        //this.resizeObserver.observe(document.body); 
     }
 
 	/**
@@ -101,19 +103,24 @@ export default class Accordion {
 	}
 
 	/**
-	 * Change callback when currentItem change
+	 * Change callback when currentIndex change
 	 * @param {Object} value 
 	 * @return {void}
 	 */
 	#changeCallback(value){
 
-        if( this.currentItem === value.currentItem ){
+        if( this.currentIndex === value.currentIndex ){
             return;
         }
 
-		this.items[this.currentItem]?.item.classList.remove( 'badfennec-accordion__item--current' );
-		this.currentItem = value.currentItem;
-		this.items[this.currentItem]?.item.classList.add( 'badfennec-accordion__item--current' );
-		this.#setItemHeight( this.items[this.currentItem] );
+		this.items[this.currentIndex]?.item.classList.remove( 'badfennec-accordion__item--current' );
+		this.currentIndex = value.currentIndex;
+
+		if( this.currentIndex === -1 ){
+			return;
+		}
+		
+		this.#setItemHeight( this.items[this.currentIndex] );
+		this.items[this.currentIndex]?.item.classList.add( 'badfennec-accordion__item--current' );
     }
 }
