@@ -8,7 +8,7 @@ This is not a ready-to-use visual theme; it is a technical scaffold intended for
 * **Classic Architecture:** Traditional PHP structure (non-FSE), ideal for complex custom builds.
 * **Modern Frontend Stack:**
     * **TailwindCSS:** For rapid, utility-first styling.
-    * **Webpack:** Handles asset compilation, minification, and bundling.
+    * **Vite:** Handles asset compilation, minification, and bundling.
     * **Hot Module Replacement (HMR):** For a smooth development experience.
 * **Professional PHP Management:**
     * **Composer:** Handles PHP dependencies and PSR-4 autoloading.
