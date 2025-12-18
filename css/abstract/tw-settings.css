@@ -35,28 +35,3 @@
     background-repeat: no-repeat;
     background-size: 100% 3px;
 }
-
-/*
-
-@mixin text_underline( $c, $h ){
-	background-image: linear-gradient($c,$c);
-    background-position: 0 95%;
-    background-repeat: no-repeat;
-    background-size: 100% $h;
-}
-
-@mixin underline_hover( $c, $h ){
-	@media ( pointer: fine ){
-
-		background-image: linear-gradient($c,$c);
-		background-position: 0 95%;
-		background-repeat: no-repeat;
-		background-size: 0% $h;
-		//@include functions.transition('color .3s, background .3s');
-
-		&:hover {
-			@include text_underline( $c, $h );
-		}
-
-	}
-} */

@@ -1,13 +1,7 @@
 @reference 'tailwindcss';
 @reference './abstract/tw-settings.css';
-
-/* @import './utility/typography-2.css'; */
-
-/* @import './parts/form.css'; */
 @import './components/atoms/buttons.css';
 @import './components/organisms/footer.css';
-
-/* @import './woocommerce/woocommerce.css'; */
 
 html, body {
 	width: 100%;

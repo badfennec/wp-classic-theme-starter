@@ -38,7 +38,11 @@ export default defineConfig({
         minify: false,
         emptyOutDir: false,
         watch: {
-            exclude: ['index.html', 'theme/assets/**']
+            include: [
+                'css/**/*.css',
+                'theme/components/**',
+                'theme/woocommerce/**',
+            ]
         },
         rollupOptions: {
             input: {
