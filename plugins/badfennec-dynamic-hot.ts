@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path'
+import { ViteDevServer } from 'vite';
 
-export default function ViteWpDynamicHot({ ASSET_DIR }){
+export default function BadFennecDynamicHot({ ASSET_DIR } : { ASSET_DIR: string }) {
     return {
-        name: 'vite-wp-dynamic-hot',
-        configureServer(server) {
+        name: 'badfennec-dynamic-hot',
+        configureServer(server : ViteDevServer) {
         const hotFilePath = path.join( ASSET_DIR, 'hot');
         
         // Make sure the ASSET_DIR exists, if not, create it
@@ -13,9 +14,9 @@ export default function ViteWpDynamicHot({ ASSET_DIR }){
         }
 
         // Get server info
-        const protocol = server.config.server.https ? 'https' : 'http';
-        const host = server.config.server.host || 'localhost';
-        let port = server.config.server.port;
+        const protocol = server?.config.server.https ? 'https' : 'http';
+        const host = server?.config.server.host || 'localhost';
+        let port = server?.config.server.port;
 
         server.httpServer?.once('listening', () => {
             const address = server.httpServer?.address();

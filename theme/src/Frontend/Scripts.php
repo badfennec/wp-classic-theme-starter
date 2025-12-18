@@ -77,7 +77,6 @@ class Scripts {
      */
     public static function enqueue_footer_scripts() : void
     {
-
         // Localize main script with data
 		$script_data = array( 
 			'theme_url' 				=>		THEME_URL, 

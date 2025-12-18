@@ -5,10 +5,17 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import { getCssEntries } from './utils/get-css-entries';
 import { handleAssetInfo } from './utils/handle-asset-info';
-import ViteWpDynamicHot from './plugins/vite-wp-dynamic-hot';
+import BadFennecDynamicHot from './plugins/badfennec-dynamic-hot';
+import BadFennecReloadNotifier from './plugins/badfennec-reload-notifier';
 
 const ASSET_DIR = path.resolve(__dirname, 'theme', 'assets');
 const HOT_FILE = path.join(ASSET_DIR, 'hot');
+
+const ALLOWED_WATCH_PATHS = [
+    'css/',              
+    'theme/components',
+    'theme/woocommerce',
+];
 
 const cssEntries = getCssEntries(path.resolve(__dirname, '{css/components/**/*.css,css/woocommerce/*.css}'));
 
@@ -25,7 +32,8 @@ export default defineConfig({
                 }
             ]
         }),
-        ViteWpDynamicHot({ ASSET_DIR })
+        BadFennecDynamicHot({ ASSET_DIR }),
+        BadFennecReloadNotifier( { ALLOWED_WATCH_PATHS } )
     ],
     build: {
         outDir: ASSET_DIR,
@@ -47,6 +55,11 @@ export default defineConfig({
                     return handleAssetInfo( assetInfo );
                 }
             }
+        }
+    },
+    server: {
+        watch: {
+            usePolling: true,
         }
     }
 });
